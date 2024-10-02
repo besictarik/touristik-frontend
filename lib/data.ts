@@ -1,4 +1,4 @@
-import { Blog, Index, Listing } from "@/lib/types/payload-types";
+import { AmmenityItem, Blog, Index, Listing } from "@/lib/types/payload-types";
 import { Collection } from "@/lib/types/definitions";
 
 export const getIndexData = async (): Promise<Index> => {
@@ -18,5 +18,12 @@ export const getBlogData = async (): Promise<Blog> => {
 
 export const getListingsData = async (): Promise<Collection<Listing>> => {
   const data = await import(`@/lib/placeholder-data/listings.json`);
-  return data.default as unknown as Collection<Listing>;
+  return data.default as Collection<Listing>;
+};
+
+export const getAmmenitiesData = async (): Promise<
+  Collection<AmmenityItem>
+> => {
+  const data = await import(`@/lib/placeholder-data/ammenities.json`);
+  return data.default as Collection<AmmenityItem>;
 };

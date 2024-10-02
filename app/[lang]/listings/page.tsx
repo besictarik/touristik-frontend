@@ -5,14 +5,11 @@ import { SupportedLanguage } from "@/lib/types/definitions";
 import { getDictionary } from "@/lib/utils";
 import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
-import Image from "next/image";
-import Link from "next/link";
-import ListingCard from "@/components/ListingCard";
 import SearchForm from "@/components/SearchForm";
 import { FormsProvider } from "@/components/providers/FormsProvider";
 import FilterForm from "@/components/FilterForm";
 import Pagination from "@/components/Pagination";
-import { getListingsData } from "@/lib/data";
+import { getAmmenitiesData, getListingsData } from "@/lib/data";
 import Listings from "@/components/Listings";
 
 type SearchParamsType = {
@@ -35,6 +32,8 @@ const Page = async ({
 }) => {
   const t = await getDictionary(lang);
   const data = await getListingsData();
+  const ammenities = await getAmmenitiesData();
+
   return (
     <div className={"bg-light-3"}>
       <Banner lang={lang} />
@@ -57,7 +56,7 @@ const Page = async ({
           </div>
           <div className="my-10 grid grid-cols-3 sm:grid-cols-1 gap-10">
             <div className="col-span-1">
-              <FilterForm t={t.Search} />
+              <FilterForm t={t.Search} ammenities={ammenities.docs} />
             </div>
             <div className="col-span-2 sm:col-span-1 flex flex-col gap-10">
               <Listings lang={lang} listings={data.docs} />

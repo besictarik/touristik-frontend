@@ -25,12 +25,33 @@ const SearchForm = ({ t }: { t: Dictionary["Search"] }) => {
       params.set(key, newValue.toString());
     });
 
-    filterFormData.keys().forEach((key) => {
-      const newValue = filterFormData.get(key) || "";
-      params.set(key, newValue.toString());
-    });
+    // filterFormData.keys().forEach((key) => {
+    //   const newValue = filterFormData.get(key) || "";
+    //   params.set(key, newValue.toString());
+    // });
 
-    replace(`${pathname}/${params.toString()}`);
+    // filterFormData
+    const minPrice = filterFormData.get("minPrice") || "";
+    const maxPrice = filterFormData.get("maxPrice") || "";
+
+    params.set("minPrice", minPrice.toString());
+    params.set("maxPrice", maxPrice.toString());
+
+    const ammenities = Array.from(filterFormData.keys())
+      .map((key) => {
+        if (!["minPrice", "maxPrice"].includes(key)) return key;
+      })
+      .filter((key) => key != undefined);
+
+    // params.set("ammenities", ammenities.join(","));
+    // params.set("page", "1");
+
+    params.delete("page");
+
+    const newURL = `${pathname}?${params.toString()}&ammenities=${ammenities.join(",")}&page=1`;
+
+    // replace(`${pathname}?${params.toString()}`);
+    replace(newURL);
   };
 
   // Fix unnecessary HTML code

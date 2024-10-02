@@ -9,8 +9,15 @@ import { useFormsContext } from "@/components/providers/FormsProvider";
 import WalletSVG from "@/public/wallet.svg";
 import MinusSVG from "@/public/minus.svg";
 import GoalsSVG from "@/public/goals.svg";
+import { AmmenityItem, Icon } from "@/lib/types/payload-types";
 
-const FilterForm = ({ t }: { t: Dictionary["Search"] }) => {
+const FilterForm = ({
+  t,
+  ammenities,
+}: {
+  t: Dictionary["Search"];
+  ammenities: AmmenityItem[];
+}) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -30,12 +37,33 @@ const FilterForm = ({ t }: { t: Dictionary["Search"] }) => {
       params.set(key, newValue.toString());
     });
 
-    filterFormData.keys().forEach((key) => {
-      const newValue = filterFormData.get(key) || "";
-      params.set(key, newValue.toString());
-    });
+    // filterFormData.keys().forEach((key) => {
+    //   const newValue = filterFormData.get(key) || "";
+    //   params.set(key, newValue.toString());
+    // });
 
-    replace(`${pathname}/${params.toString()}`);
+    // filterFormData
+    const minPrice = filterFormData.get("minPrice") || "";
+    const maxPrice = filterFormData.get("maxPrice") || "";
+
+    params.set("minPrice", minPrice.toString());
+    params.set("maxPrice", maxPrice.toString());
+
+    const ammenities = Array.from(filterFormData.keys())
+      .map((key) => {
+        if (!["minPrice", "maxPrice"].includes(key)) return key;
+      })
+      .filter((key) => key != undefined);
+
+    // params.set("ammenities", ammenities.join(","));
+    // params.set("page", "1");
+
+    params.delete("page");
+
+    const newURL = `${pathname}?${params.toString()}&ammenities=${ammenities.join(",")}&page=1`;
+
+    // replace(`${pathname}?${params.toString()}`);
+    replace(newURL);
   };
 
   return (
@@ -104,37 +132,38 @@ const FilterForm = ({ t }: { t: Dictionary["Search"] }) => {
         </div>
         <div className="ml-2.5">{t.amenities}</div>
       </div>
-      {/*<div>*/}
-      {/*  {ammenities &&*/}
-      {/*    ammenities.map((ammenity) => {*/}
-      {/*      return (*/}
-      {/*        <div*/}
-      {/*          key={ammenity.id}*/}
-      {/*          className="flex justify-between items-center"*/}
-      {/*        >*/}
-      {/*          <div className="flex items-center">*/}
-      {/*            <div className="w-3 h-3 relative mr-2.5">*/}
-      {/*              <Image*/}
-      {/*                unoptimized*/}
-      {/*                src={`${process.env.NEXT_PUBLIC_PAYLOAD_URL}${ammenity.icon.url}`}*/}
-      {/*                fill*/}
-      {/*                style={{*/}
-      {/*                  objectFit: "cover",*/}
-      {/*                }}*/}
-      {/*                alt=""*/}
-      {/*              />*/}
-      {/*            </div>*/}
-      {/*            <label htmlFor={ammenity.id}>{ammenity.ammenity}</label>*/}
-      {/*          </div>*/}
-      {/*          <input*/}
-      {/*            type="checkbox"*/}
-      {/*            name={ammenity.id}*/}
-      {/*            defaultChecked={query[ammenity.id] === "on"}*/}
-      {/*          />*/}
-      {/*        </div>*/}
-      {/*      );*/}
-      {/*    })}*/}
-      {/*</div>*/}
+      <div>
+        {ammenities &&
+          ammenities.map((ammenity) => {
+            return (
+              <div
+                key={ammenity.id}
+                className="flex justify-between items-center"
+              >
+                <div className="flex items-center">
+                  <div className="w-3 h-3 relative mr-2.5">
+                    <Image
+                      unoptimized
+                      src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL_ONE_ONLY}${(ammenity.icon as Icon).url}`}
+                      fill
+                      style={{
+                        objectFit: "cover",
+                      }}
+                      alt=""
+                    />
+                  </div>
+                  <label htmlFor={ammenity.id}>{ammenity.ammenity}</label>
+                </div>
+                <input
+                  type="checkbox"
+                  id={ammenity.id}
+                  name={ammenity.id}
+                  defaultChecked={query[ammenity.id] === "on"}
+                />
+              </div>
+            );
+          })}
+      </div>
       <button
         type="submit"
         className="flex p-5 justify-center items-center bg-dark-3 text-white"
