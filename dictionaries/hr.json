@@ -1,0 +1,97 @@
+{
+  "Index": {
+    "title": "Luksuzne vile Hrvatska",
+    "description": "Osigurajte prednosti cijene putem direktnih upita putem e-pošte info@tst-touristik.de.",
+    "subtitle": "Istaknute vile",
+    "highlights": {
+      "highlightOne": {
+        "title": "Nagrađivanost",
+        "subtitle": "Prepoznati za izvrsnost, naša tvrtka s ponosom posjeduje kolekciju prestižnih nagrada."
+      },
+      "highlightTwo": {
+        "title": "Profesionalnost",
+        "subtitle": "Od stručnog upravljanja nekretninama do besprijekornih iskustava gostiju, održavamo najviše standarde."
+      },
+      "highlightThree": {
+        "title": "Pristupačnost",
+        "subtitle": "Naši pristupačni najmovi vila pružaju savršenu kombinaciju udobnosti, praktičnosti i vrijednosti."
+      }
+    }
+  },
+  "Search": {
+    "title": "Pretražite sve naše vile u Hrvatskoj",
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "location": "Lokacija",
+    "rooms": "Sobe",
+    "bathrooms": "Kupaonice",
+    "guests": "Gosti",
+    "search": "Pretraži",
+    "filter": "Filtriraj",
+    "pricePerNight": "Cijena po noćenju",
+    "minimum": "Minimum",
+    "maximum": "Maksimum",
+    "amenities": "Pogodnosti",
+    "loading": "Učitavanje...",
+    "noResults": "Nema rezultata."
+  },
+  "Listing": {
+    "browsePhotoGallery": "Pregledajte fotogaleriju",
+    "description": "Opis",
+    "sleepingArrangement": "Raspored spavanja",
+    "amenities": "Pogodnosti",
+    "availability": "Dostupnost",
+    "pricing": "Cijene",
+    "policies": "Pravila",
+    "location": "Lokacija",
+    "otherVillas": "Ostale vile",
+    "night": "noć",
+    "week": "tjedan",
+    "from": "Od",
+    "viewVilla": "Pogledaj vilu",
+    "sendAnInquiry": "Pošaljite upit",
+    "replyTime": "Obično odgovaramo unutar 24 sata.",
+    "firstName": "Ime",
+    "lastName": "Prezime",
+    "phoneNumber": "Telefonski broj",
+    "emailAddress": "E-mail adresa",
+    "checkInDate": "Datum dolaska",
+    "checkOutDate": "Datum odlaska",
+    "message": "Poruka",
+    "guests": "Gosti",
+    "send": "Pošalji"
+  },
+  "Blog": {
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "published": "Objavljeno"
+  },
+  "NeedHelp": {
+    "title": "Trebate pomoć?",
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat diam ut venenatis tellus in metus vulputate eu scelerisque. Aenean pharetra magna ac placerat vestibulum lectus mauris.",
+    "croNumber": "Hrvatski telefonski broj",
+    "gerNumber": "Njemački telefonski broj",
+    "firstName": "Ime",
+    "lastName": "Prezime",
+    "phoneNumber": "Telefonski broj",
+    "emailAddress": "E-mail adresa",
+    "message": "Poruka",
+    "send": "Pošalji"
+  },
+  "Footer": {
+    "languageSelection": "Odabir jezika",
+    "paymentOptions": "Opcije plaćanja",
+    "bankTransfer": "Bankovni transfer",
+    "cards": "Kartice",
+    "navigation": "Navigacija",
+    "services": "Usluge",
+    "search": "Pretraži",
+    "allVillas": "Sve vile",
+    "termsOfService": "Uvjeti korištenja",
+    "privacyPolicy": "Politika privatnosti",
+    "social": "Društvene mreže",
+    "offices": "Uredi",
+    "workingHours": "Radno vrijeme: ponedjeljak - petak; 9:00 - 17:00 (po potrebi)",
+    "aboutUs": "O nama",
+    "contactUs": "Kontakt",
+    "extras": "Dodatno"
+  }
+}

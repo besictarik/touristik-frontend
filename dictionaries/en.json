@@ -1,0 +1,97 @@
+{
+  "Index": {
+    "title": "Dream villas in Croatia",
+    "description": "Secure price advantages for direct enquiries via email info@tst-touristik.de.",
+    "subtitle": "Featured villas",
+    "highlights": {
+      "highlightOne": {
+        "title": "Awarded",
+        "subtitle": "Recognized for excellence, our company proudly boasts a collection of prestigious awards."
+      },
+      "highlightTwo": {
+        "title": "Professional",
+        "subtitle": "From expertly managed properties to seamless guest experiences, we maintain the highest standards."
+      },
+      "highlightThree": {
+        "title": "Affordable",
+        "subtitle": "Our affordable villa rentals provide the perfect blend of comfort, convenience, and value."
+      }
+    }
+  },
+  "Search": {
+    "title": "Search all of our villas in Croatia",
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "location": "Location",
+    "rooms": "Rooms",
+    "bathrooms": "Bathrooms",
+    "guests": "Guests",
+    "search": "Search",
+    "filter": "Filter",
+    "pricePerNight": "Price per night",
+    "minimum": "Minimum",
+    "maximum": "Maximum",
+    "amenities": "Amenities",
+    "loading": "Loading...",
+    "noResults": "No results found."
+  },
+  "Listing": {
+    "browsePhotoGallery": "Browse photo gallery",
+    "description": "Description",
+    "sleepingArrangement": "Sleeping arrangement",
+    "amenities": "Amenities",
+    "availability": "Availability",
+    "pricing": "Pricing",
+    "policies": "Policies",
+    "location": "Location",
+    "otherVillas": "Other villas",
+    "night": "night",
+    "week": "week",
+    "from": "From",
+    "viewVilla": "View villa",
+    "sendAnInquiry": "Send an inquiry",
+    "replyTime": "We usually reply within 24 hours.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phoneNumber": "Phone number",
+    "emailAddress": "E-mail address",
+    "checkInDate": "Check-in date",
+    "checkOutDate": "Check-out date",
+    "message": "Message",
+    "guests": "Guests",
+    "send": "Send"
+  },
+  "Blog": {
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "published": "Published"
+  },
+  "NeedHelp": {
+    "title": "Need help?",
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat diam ut venenatis tellus in metus vulputate eu scelerisque. Aenean pharetra magna ac placerat vestibulum lectus mauris.",
+    "croNumber": "Croatian phone number",
+    "gerNumber": "German phone number",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phoneNumber": "Phone number",
+    "emailAddress": "Email address",
+    "message": "Message",
+    "send": "Send"
+  },
+  "Footer": {
+    "languageSelection": "Language selection",
+    "paymentOptions": "Payment options",
+    "bankTransfer": "Bank transfer",
+    "cards": "Cards",
+    "navigation": "Navigation",
+    "services": "Services",
+    "allVillas": "All villas",
+    "search": "Search",
+    "termsOfService": "Terms of service",
+    "privacyPolicy": "Privacy policy",
+    "social": "Social",
+    "offices": "Offices",
+    "workingHours": "Working hours: Monday - Friday; 9:00 AM - 5:00 PM (on demand)",
+    "aboutUs": "About us",
+    "contactUs": "Contact us",
+    "extras": "Extras"
+  }
+}

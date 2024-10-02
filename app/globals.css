@@ -2,26 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Calendar located at listings/[id] */
+.fullyBookedDate,
+.transitionDay {
+    background: lightgray !important;
+    color: black !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.checkinDate {
+    background: linear-gradient(
+            120deg,
+            transparent 50%,
+            lightgray 50%
+    ) !important;
+    color: black !important;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.checkoutDate {
+    background: linear-gradient(
+            120deg,
+            lightgray 50%,
+            transparent 50%
+    ) !important;
+    color: black !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Used to be seperated file */
+.react-calendar__viewContainer {
+    display: flex;
+    gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+    .react-calendar__viewContainer {
+        flex-direction: column;
+    }
+}
+
+.react-calendar {
+    border: 1px solid rgba(38, 36, 36, 0.5);
+    background: #f5f1ed;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.react-calendar__navigation {
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #262424;
+    display: flex;
+}
+
+.react-calendar__navigation__arrow {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+}
+
+.react-calendar__month-view__weekdays__weekday,
+.react-calendar__month-view__days__day {
+    padding: 5px;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+    visibility: hidden;
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: gray;
 }
