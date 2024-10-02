@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
-import { getData } from "@/lib/data";
+import { getIndexData } from "@/lib/data";
 import VillasRight from "@/components/blocks/VillasRight";
 import VillasLeft from "@/components/blocks/VillasLeft";
 import Destinations from "@/components/blocks/Destinations";
@@ -24,7 +24,7 @@ const Page = async ({
 }: {
   params: { lang: SupportedLanguage };
 }) => {
-  const index = await getData();
+  const index = await getIndexData();
   const { blocks } = index;
   return (
     <div className={"bg-light-3"}>

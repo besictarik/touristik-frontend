@@ -1,0 +1,53 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+
+const Pagination = ({
+  totalPages,
+  page,
+  nextPage,
+  prevPage,
+}: {
+  totalPages: number;
+  page: number;
+  nextPage: number | null;
+  prevPage: number | null;
+}) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const createPageURL = (pageNumber: number | string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("page", pageNumber.toString());
+    return `${pathname}/${params.toString()}`;
+  };
+
+  return (
+    <div className="grid grid-cols-3 mx-auto">
+      {prevPage && <Link href={createPageURL(prevPage)}>←</Link>}
+      <ul className="flex gap-2 flex-wrap">
+        {[...Array(totalPages)].map((_, index) => {
+          const pageNumber = index + 1;
+          return (
+            <li key={index}>
+              <Link
+                className={`${page === pageNumber && "underline"}`}
+                href={createPageURL(pageNumber)}
+              >
+                {pageNumber}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      {nextPage && (
+        <Link className={"text-center"} href={createPageURL(nextPage)}>
+          →
+        </Link>
+      )}
+    </div>
+  );
+};
+
+export default Pagination;

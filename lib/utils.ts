@@ -26,3 +26,11 @@ const dictionaries = {
 export const getDictionary = async (
   locale: SupportedLanguage,
 ): Promise<Dictionary> => dictionaries[locale]();
+
+export const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};

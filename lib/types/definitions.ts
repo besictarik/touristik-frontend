@@ -118,3 +118,16 @@ export type EmailData = {
   guests?: string;
   pagePath: string;
 };
+
+export type Collection<T> = {
+  docs: T[]; // Array of type T
+  totalDocs: number;
+  limit: number;
+  totalPages: number;
+  page: number;
+  pagingCounter: number;
+  hasPrevPage: boolean;
+  hasNextPage: boolean;
+  prevPage: number | null;
+  nextPage: number | null;
+};
