@@ -8,7 +8,7 @@ type State = {
   status?: "success" | "error" | null;
 };
 
-export const sendEmailHelp = async (
+export const handleEmail = async (
   pathname: string,
   prevState: State,
   formData: FormData,
@@ -19,7 +19,7 @@ export const sendEmailHelp = async (
   );
 
   const filteredObject = Object.fromEntries(filteredData) as EmailData;
-  filteredObject.pagePath = `${process.env.BASE_URL}pathname`;
+  filteredObject.pagePath = `${process.env.BASE_URL}${pathname}`;
 
   const data = await sendEmail(filteredObject);
   if (data.error) return { status: "error" };

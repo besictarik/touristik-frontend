@@ -34,3 +34,23 @@ export const formatDate = (dateString: string) => {
     day: "numeric",
   });
 };
+
+export const isSameDateAs = (dateOne: Date, dateTwo: Date): boolean => {
+  return (
+    dateOne.getFullYear() === dateTwo.getFullYear() &&
+    dateOne.getMonth() === dateTwo.getMonth() &&
+    dateOne.getDate() === dateTwo.getDate()
+  );
+};
+
+export const convertToZagrebTimezone = (date: Date) => {
+  return new Date(date.toLocaleString("en-US", { timeZone: "Europe/Zagreb" }));
+};
+
+export const checkBookingStatus = (date: Date, start: Date, end: Date) => {
+  const isCheckin = isSameDateAs(date, start);
+  const isCheckout = isSameDateAs(date, end);
+  const isBooked = date > start && date < end;
+
+  return { isCheckin, isCheckout, isBooked };
+};

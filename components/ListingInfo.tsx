@@ -45,7 +45,6 @@ const ListingInfo = async ({
       </div>
       <div className="grid grid-cols-3 gap-2.5 items-center text-center">
         {listing.highlightedAmmenities.map((ammenity, index) => {
-          console.log(ammenity);
           return (
             <div key={index} className="flex flex-col items-center gap-2.5">
               <Image

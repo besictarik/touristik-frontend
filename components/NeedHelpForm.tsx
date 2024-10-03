@@ -2,15 +2,15 @@
 
 import { Dictionary } from "@/lib/types/definitions";
 import { useFormState } from "react-dom";
-import { sendEmailHelp } from "@/lib/actions";
+import { handleEmail } from "@/lib/actions";
 import { usePathname } from "next/navigation";
 
 const NeedHelpForm = ({ t }: { t: Dictionary }) => {
   const pathname = usePathname();
-  const sendEmailHelpWithPathname = sendEmailHelp.bind(null, pathname);
+  const handleEmailWithPathname = handleEmail.bind(null, pathname);
   const initialState = { message: null, status: null };
   const [state, action, isPending] = useFormState(
-    sendEmailHelpWithPathname,
+    handleEmailWithPathname,
     initialState,
   );
 
