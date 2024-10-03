@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
 import { SupportedLanguage } from "@/lib/types/definitions";
-import { getDictionary } from "@/lib/utils";
+import { getDictionary, locales } from "@/lib/utils";
 import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
 import SearchForm from "@/components/SearchForm";
@@ -21,6 +21,12 @@ type SearchParamsType = {
   maxPrice?: string;
   ammenities?: string;
   page?: string;
+};
+
+export const generateStaticParams = async () => {
+  return locales.map((locale) => ({
+    lang: locale,
+  }));
 };
 
 const Page = async ({
@@ -51,20 +57,26 @@ const Page = async ({
             </p>
           </div>
           <div className="my-10">
-            <SearchForm t={t.Search} />
+            <Suspense fallback={<></>}>
+              <SearchForm t={t.Search} />
+            </Suspense>
           </div>
           <div className="my-10 grid grid-cols-3 sm:grid-cols-1 gap-10">
             <div className="col-span-1">
-              <FilterForm t={t.Search} ammenities={ammenities.docs} />
+              <Suspense fallback={<></>}>
+                <FilterForm t={t.Search} ammenities={ammenities.docs} />
+              </Suspense>
             </div>
             <div className="col-span-2 sm:col-span-1 flex flex-col gap-10">
               <Listings lang={lang} listings={data.docs} />
-              <Pagination
-                totalPages={data.totalPages}
-                page={data.page}
-                nextPage={data.nextPage}
-                prevPage={data.prevPage}
-              />
+              <Suspense fallback={<></>}>
+                <Pagination
+                  totalPages={data.totalPages}
+                  page={data.page}
+                  nextPage={data.nextPage}
+                  prevPage={data.prevPage}
+                />
+              </Suspense>
             </div>
           </div>
         </div>

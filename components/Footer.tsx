@@ -46,7 +46,9 @@ const Footer = async ({ lang }: { lang: SupportedLanguage }) => {
               <Link href="/blog">Blog</Link>
             </li>
             <li>
-              <Link href="/search">{t.Footer.search}</Link>
+              <Link href="/search" prefetch={false}>
+                {t.Footer.search}
+              </Link>
             </li>
             <li>
               <Link href="/blog/65c0ec0d6aa1d2146296e9ce">

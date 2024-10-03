@@ -1,5 +1,5 @@
-import { getListingData } from "@/lib/data";
-import { getDictionary } from "@/lib/utils";
+import { getListingData, getListingsData } from "@/lib/data";
+import { getDictionary, locales } from "@/lib/utils";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
@@ -19,6 +19,17 @@ import Pricing from "@/components/Pricing";
 import Policies from "@/components/Policies";
 import Location from "@/components/Location";
 import InquiryForm from "@/components/InquiryForm";
+
+export const generateStaticParams = async () => {
+  const { docs: listings } = await getListingsData();
+
+  return listings.map((listing) => {
+    return locales.map((locale) => ({
+      lang: locale,
+      id: listing.id,
+    }));
+  });
+};
 
 const Page = async ({
   params: { lang },

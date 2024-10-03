@@ -1,13 +1,24 @@
 import Banner from "@/components/Banner";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import Navbar from "@/components/Navbar";
-import { formatDate, getDictionary } from "@/lib/utils";
+import { formatDate, getDictionary, locales } from "@/lib/utils";
 import Image from "next/image";
 import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
-import { getBlogData } from "@/lib/data";
+import { getBlogData, getBlogsData } from "@/lib/data";
 import { Photo } from "@/lib/types/payload-types";
 import { serializeCMSContent } from "@/lib/cms-helpers";
+
+export const generateStaticParams = async () => {
+  const { docs: blogs } = await getBlogsData();
+
+  return blogs.map((blog) => {
+    return locales.map((locale) => ({
+      lang: locale,
+      id: blog.id,
+    }));
+  });
+};
 
 const Page = async ({
   params: { lang },

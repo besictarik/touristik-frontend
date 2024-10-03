@@ -3,11 +3,17 @@ import { getBlogsData } from "@/lib/data";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
-import { getDictionary } from "@/lib/utils";
+import { getDictionary, locales } from "@/lib/utils";
 import Link from "next/link";
 import BlogCard from "@/components/BlogCard";
 import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
+
+export const generateStaticParams = async () => {
+  return locales.map((locale) => ({
+    lang: locale,
+  }));
+};
 
 const Page = async ({
   params: { lang },
