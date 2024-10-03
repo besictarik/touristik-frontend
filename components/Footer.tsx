@@ -89,15 +89,26 @@ const Footer = async ({ lang }: { lang: SupportedLanguage }) => {
           </div>
           <ul className="flex flex-col gap-2.5">
             <li>
-              <Link href="https://www.facebook.com/profile.php?id=100070531613302">
+              <Link
+                href="https://www.facebook.com/profile.php?id=100070531613302"
+                target={"_blank"}
+              >
                 Facebook
               </Link>
             </li>
             <li>
-              <Link href="https://www.instagram.com/tstvillas/">Instagram</Link>
+              <Link
+                href="https://www.instagram.com/tstvillas/"
+                target={"_blank"}
+              >
+                Instagram
+              </Link>
             </li>
             <li>
-              <Link href="https://www.linkedin.com/company/75443575/">
+              <Link
+                href="https://www.linkedin.com/company/75443575/"
+                target={"_blank"}
+              >
                 LinkedIn
               </Link>
             </li>
