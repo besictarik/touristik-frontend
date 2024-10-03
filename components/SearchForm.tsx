@@ -1,58 +1,15 @@
 "use client";
 
 import React from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Dictionary } from "@/lib/types/definitions";
 import { useFormsContext } from "@/components/providers/FormsProvider";
 
 const SearchForm = ({ t }: { t: Dictionary["Search"] }) => {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
-  const { searchFormRef, filterFormRef } = useFormsContext();
+  const { searchFormRef, handleSearch } = useFormsContext();
 
   const query = Object.fromEntries(searchParams);
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const params = new URLSearchParams(searchParams);
-
-    const searchFormData = new FormData(searchFormRef.current!);
-    const filterFormData = new FormData(filterFormRef.current!);
-
-    searchFormData.keys().forEach((key) => {
-      const newValue = searchFormData.get(key) || "";
-      params.set(key, newValue.toString());
-    });
-
-    // filterFormData.keys().forEach((key) => {
-    //   const newValue = filterFormData.get(key) || "";
-    //   params.set(key, newValue.toString());
-    // });
-
-    // filterFormData
-    const minPrice = filterFormData.get("minPrice") || "";
-    const maxPrice = filterFormData.get("maxPrice") || "";
-
-    params.set("minPrice", minPrice.toString());
-    params.set("maxPrice", maxPrice.toString());
-
-    const ammenities = Array.from(filterFormData.keys())
-      .map((key) => {
-        if (!["minPrice", "maxPrice"].includes(key)) return key;
-      })
-      .filter((key) => key != undefined);
-
-    // params.set("ammenities", ammenities.join(","));
-    // params.set("page", "1");
-
-    params.delete("page");
-
-    const newURL = `${pathname}?${params.toString()}&ammenities=${ammenities.join(",")}&page=1`;
-
-    // replace(`${pathname}?${params.toString()}`);
-    replace(newURL);
-  };
 
   // Fix unnecessary HTML code
   return (
