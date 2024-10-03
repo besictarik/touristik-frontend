@@ -36,7 +36,7 @@ const BigVillaRight = async ({
             <div className="w-6 h-6 mb-2 relative">
               <Image
                 unoptimized
-                src={`${process.env.NEXT_PUBLIC_PAYLOAD_URL}${((listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                 alt={`${(listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).ammenity} photo`}
                 fill
                 style={{
@@ -57,7 +57,7 @@ const BigVillaRight = async ({
             <div className="w-6 h-6 mb-2 relative">
               <Image
                 unoptimized
-                src={`${process.env.NEXT_PUBLIC_PAYLOAD_URL}${((listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                 alt={`${(listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).ammenity} photo`}
                 fill
                 style={{
@@ -78,7 +78,7 @@ const BigVillaRight = async ({
             <div className="w-6 h-6 mb-2 relative">
               <Image
                 unoptimized
-                src={`${process.env.NEXT_PUBLIC_PAYLOAD_URL}${((listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                 alt={`${(listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).ammenity} photo`}
                 fill
                 style={{

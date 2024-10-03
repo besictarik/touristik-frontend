@@ -10,7 +10,7 @@ import { Photo } from "@/lib/types/payload-types";
 import { serializeCMSContent } from "@/lib/cms-helpers";
 
 const Page = async ({
-  params: { lang, id },
+  params: { lang },
 }: {
   params: { lang: SupportedLanguage; id: string };
 }) => {

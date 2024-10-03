@@ -21,7 +21,7 @@ const Destinations = ({ block }: { block: BlockType }) => {
         <div className="grid grid-cols-4 sm:grid-cols-1 gap-5">
           {block.destinationsList.map((destination) => {
             return (
-              <Link href={`${destination.link}`}>
+              <Link key={destination.id} href={`${destination.link}`}>
                 <div className="relative h-[300px]">
                   <Image
                     unoptimized

@@ -19,7 +19,7 @@ const CalendarAvailability = ({
       const { data } = await getAvailability(availabilityURL);
       setBookedRanges(data);
     })();
-  }, []);
+  }, [availabilityURL]);
 
   return (
     <div>

@@ -19,7 +19,7 @@ const AboutUs = ({ block }: { block: BlockType }) => {
           <p>{block.paragraph}</p>
           {block.employees.map((employee) => {
             return (
-              <div>
+              <div key={employee.id}>
                 <div className="w-full h-[300px] relative ">
                   <Image
                     unoptimized

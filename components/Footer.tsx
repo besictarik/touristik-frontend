@@ -74,7 +74,10 @@ const Footer = async ({ lang }: { lang: SupportedLanguage }) => {
               </Link>
             </li>
             <li>
-              <Link href="/sitemap.xml">Sitemap</Link>
+              {/* Navigation to sitemap causes an error in console */}
+              <Link href="/sitemap.xml" prefetch={false}>
+                Sitemap
+              </Link>
             </li>
           </ul>
         </div>

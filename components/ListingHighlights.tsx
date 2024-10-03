@@ -11,7 +11,10 @@ const ListingHighlights = ({
     <>
       {highlights?.map((highlight) => {
         return (
-          <div className="p-5 inline-flex gap-5 mt-5 bg-light-1 text-dark-3 border border-dark-5 border-opacity-50 shadow-drop-shadow-1">
+          <div
+            key={highlight.id}
+            className="p-5 inline-flex gap-5 mt-5 bg-light-1 text-dark-3 border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
+          >
             <div className="w-14 h-14 relative">
               <Image
                 unoptimized

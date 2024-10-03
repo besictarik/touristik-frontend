@@ -8,7 +8,6 @@ import NeedHelpForm from "@/components/NeedHelpForm";
 
 const NeedHelp = async ({ lang }: { lang: SupportedLanguage }) => {
   const t = await getDictionary(lang);
-  const status = "error";
 
   return (
     <div className="bg-dark-4 py-20 relative text-light-5">

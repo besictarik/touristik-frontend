@@ -25,7 +25,6 @@ type SearchParamsType = {
 
 const Page = async ({
   params: { lang },
-  searchParams,
 }: {
   params: { lang: SupportedLanguage };
   searchParams: SearchParamsType;

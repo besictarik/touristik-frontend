@@ -21,7 +21,7 @@ import Location from "@/components/Location";
 import InquiryForm from "@/components/InquiryForm";
 
 const Page = async ({
-  params: { lang, id },
+  params: { lang },
 }: {
   params: { lang: SupportedLanguage; id: string };
 }) => {

@@ -27,6 +27,7 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
               <label htmlFor="firstName">{t.firstName}*</label>
               <input
                 type="text"
+                id={"firstName"}
                 name="firstName"
                 className="p-2.5 w-full rounded-none border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
                 placeholder="John"
@@ -37,6 +38,7 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
               <label htmlFor="lastName">{t.lastName}*</label>
               <input
                 type="text"
+                id={"lastName"}
                 name="lastName"
                 className="p-2.5 w-full rounded-none border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
                 placeholder="Doe"
@@ -51,6 +53,7 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
               </label>
               <input
                 type="tel"
+                id={"phoneNumber"}
                 name="phoneNumber"
                 className="block p-2.5 w-full rounded-none border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
                 placeholder="+385 223 2332"
@@ -63,7 +66,9 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
               </label>
               <input
                 type="email"
+                id={"email"}
                 name="emailAddress"
+                autoComplete={"email"}
                 className="block p-2.5 w-full rounded-none border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
                 placeholder="john.doe@gmail.com"
                 required
@@ -75,6 +80,7 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
               <label htmlFor="checkInDate">{t.checkInDate}</label>
               <input
                 type="date"
+                id={"checkInDate"}
                 name="checkInDate"
                 className="appearance-none text-xs block bg-white text-dark-5 text-opacity-50 p-2.5 w-full rounded-none border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
               />
@@ -83,6 +89,7 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
               <label htmlFor="checkOutDate">{t.checkOutDate}</label>
               <input
                 type="date"
+                id={"checkOutDate"}
                 name="checkOutDate"
                 className="text-xs appearance-none block bg-white text-dark-5 text-opacity-50 p-2.5 w-full rounded-none border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
               />
@@ -91,6 +98,7 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
           <div className="flex flex-col">
             <label htmlFor="message">{t.message}</label>
             <textarea
+              id={"message"}
               name="message"
               className="p-2.5 w-full rounded-none border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
               placeholder="We'd like to know..."
@@ -101,6 +109,7 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
               <label htmlFor="guests">{t.guests}*</label>
               <input
                 type="number"
+                id={"guests"}
                 name="guests"
                 className="p-2.5 w-full rounded-none border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
                 placeholder="2"
@@ -108,7 +117,7 @@ const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
               />
             </div>
             <div className="flex-1">
-              <label className="invisible sm:hidden">Placeholder text</label>
+              <span className="invisible sm:hidden">Placeholder text</span>
               <button
                 className="p-2.5  w-full bg-dark-5 text-light-1 border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
                 type="submit"
