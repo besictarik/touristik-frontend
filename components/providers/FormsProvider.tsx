@@ -54,7 +54,7 @@ export const FormsProvider = ({
 
     if (params.size) params.set("page", "1");
 
-    replace(`${pathname}?${params.toString()}`);
+    replace(`${pathname}?${params.toString()}`, {scroll: false});
   };
 
   return (
