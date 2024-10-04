@@ -3,7 +3,7 @@ import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { Dictionary, SupportedLanguage } from "@/lib/types/definitions";
 
-export const locales = ["en", "de", "hr"];
+export const locales: SupportedLanguage[] = ["en", "de", "hr"];
 
 export const getLocale = (request: NextRequest): SupportedLanguage => {
   const headers = request.headers;
