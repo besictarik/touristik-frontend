@@ -33,19 +33,19 @@ const Page = async ({
       {blocks.map((block) => {
         switch (block.blockType) {
           case "villas-right":
-            return <VillasRight lang={lang} block={block} />;
+            return <VillasRight key={block.id} lang={lang} block={block} />;
           case "villas-left":
-            return <VillasLeft lang={lang} block={block} />;
+            return <VillasLeft key={block.id} lang={lang} block={block} />;
           case "destinations":
-            return <Destinations block={block} />;
+            return <Destinations key={block.id} block={block} />;
           case "about-us":
-            return <AboutUs block={block} />;
+            return <AboutUs key={block.id} block={block} />;
           case "super-luxurious":
-            return <SuperLuxurious lang={lang} block={block} />;
+            return <SuperLuxurious key={block.id} lang={lang} block={block} />;
           case "big-villa-right":
-            return <BigVillaRight lang={lang} block={block} />;
+            return <BigVillaRight key={block.id} lang={lang} block={block} />;
           case "big-villa-left":
-            return <BigVillaLeft lang={lang} block={block} />;
+            return <BigVillaLeft key={block.id} lang={lang} block={block} />;
         }
       })}
       <NeedHelp lang={lang} />

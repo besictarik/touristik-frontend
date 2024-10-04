@@ -11,6 +11,7 @@ import FilterForm from "@/components/FilterForm";
 import Pagination from "@/components/Pagination";
 import { getAmmenitiesData, getListingsData } from "@/lib/data";
 import Listings from "@/components/Listings";
+import { Metadata } from "next";
 
 type SearchParamsType = {
   location?: string;
@@ -21,6 +22,17 @@ type SearchParamsType = {
   maxPrice?: string;
   ammenities?: string;
   page?: string;
+};
+
+export const generateMetadata = async ({
+  params: { lang },
+}: {
+  params: { lang: SupportedLanguage };
+}): Promise<Metadata> => {
+  const t = await getDictionary(lang);
+  return {
+    title: t.Search.title,
+  };
 };
 
 export const generateStaticParams = async () => {

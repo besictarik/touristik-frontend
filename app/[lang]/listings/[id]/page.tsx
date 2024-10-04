@@ -19,6 +19,16 @@ import Pricing from "@/components/Pricing";
 import Policies from "@/components/Policies";
 import Location from "@/components/Location";
 import InquiryForm from "@/components/InquiryForm";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({}: {
+  params: { lang: SupportedLanguage; id: string };
+}): Promise<Metadata> => {
+  const listing = await getListingData();
+  return {
+    title: listing.name,
+  };
+};
 
 export const generateStaticParams = async () => {
   const { docs: listings } = await getListingsData();

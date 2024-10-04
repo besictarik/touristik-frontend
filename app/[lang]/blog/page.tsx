@@ -8,6 +8,11 @@ import Link from "next/link";
 import BlogCard from "@/components/BlogCard";
 import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+};
 
 export const generateStaticParams = async () => {
   return locales.map((locale) => ({

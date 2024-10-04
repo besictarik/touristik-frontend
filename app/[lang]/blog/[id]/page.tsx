@@ -8,6 +8,16 @@ import Footer from "@/components/Footer";
 import { getBlogData, getBlogsData } from "@/lib/data";
 import { Photo } from "@/lib/types/payload-types";
 import { serializeCMSContent } from "@/lib/cms-helpers";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({}: {
+  params: { lang: SupportedLanguage; id: string };
+}): Promise<Metadata> => {
+  const blog = await getBlogData();
+  return {
+    title: blog.title,
+  };
+};
 
 export const generateStaticParams = async () => {
   const { docs: blogs } = await getBlogsData();
