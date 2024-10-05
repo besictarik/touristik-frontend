@@ -15,19 +15,20 @@ export const GET = async (req: NextRequest) => {
   if (collection == "index") {
     locales.forEach((locale) => {
       revalidatePath(`/${locale}`);
-      return Response.json({ revalidated: true });
     });
-  }
-
-  // Might be refactored to be nonexistent
-  if (id !== "noId") {
-    locales.forEach((locale) => {
-      revalidatePath(`/${locale}/${collection}/${id}`);
-    });
+    return Response.json({ revalidated: true });
   }
 
   locales.forEach((locale) => {
+    revalidatePath(`/${locale}/${collection}/${id}`);
+  });
+
+  locales.forEach((locale) => {
     revalidatePath(`/${locale}/${collection}`);
+  });
+
+  locales.forEach((locale) => {
+    revalidatePath(`/${locale}`);
   });
 
   return Response.json({ revalidated: true });
