@@ -10,17 +10,23 @@ import { Photo } from "@/lib/types/payload-types";
 import { serializeCMSContent } from "@/lib/cms-helpers";
 import { Metadata } from "next";
 
-export const generateMetadata = async ({}: {
+export const generateMetadata = async ({
+  params: { lang, id },
+}: {
   params: { lang: SupportedLanguage; id: string };
 }): Promise<Metadata> => {
-  const blog = await getBlogData();
+  const blog = await getBlogData(lang, id);
   return {
     title: blog.title,
   };
 };
 
-export const generateStaticParams = async () => {
-  const { docs: blogs } = await getBlogsData();
+export const generateStaticParams = async ({
+  params: { lang },
+}: {
+  params: { lang: SupportedLanguage };
+}) => {
+  const { docs: blogs } = await getBlogsData(lang);
 
   return blogs.map((blog) => {
     return locales.map((locale) => ({
@@ -31,12 +37,12 @@ export const generateStaticParams = async () => {
 };
 
 const Page = async ({
-  params: { lang },
+  params: { lang, id },
 }: {
   params: { lang: SupportedLanguage; id: string };
 }) => {
   const t = await getDictionary(lang);
-  const blog = await getBlogData();
+  const blog = await getBlogData(lang, id);
   return (
     <div className={"bg-light-3"}>
       <Banner lang={lang} />

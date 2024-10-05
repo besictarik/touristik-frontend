@@ -6,6 +6,16 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "font-semibold",
+    "underline",
+    "italic",
+    "font-serif",
+    "text-2xl",
+    "my-2.5",
+    "list-disc",
+    "list-inside",
+  ],
   theme: {
     extend: {
       fontFamily: {

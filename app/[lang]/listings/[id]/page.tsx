@@ -1,5 +1,5 @@
-import { getListingData, getListingsData } from "@/lib/data";
-import { getDictionary, locales } from "@/lib/utils";
+import { getListingData } from "@/lib/data";
+import { getDictionary } from "@/lib/utils";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
@@ -20,33 +20,36 @@ import Policies from "@/components/Policies";
 import Location from "@/components/Location";
 import InquiryForm from "@/components/InquiryForm";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
-export const generateMetadata = async ({}: {
+export const generateMetadata = async ({
+  params: { lang, id },
+}: {
   params: { lang: SupportedLanguage; id: string };
 }): Promise<Metadata> => {
-  const listing = await getListingData();
+  const listing = await getListingData(lang, id);
   return {
     title: listing.name,
   };
 };
 
-export const generateStaticParams = async () => {
-  const { docs: listings } = await getListingsData();
-
-  return listings.map((listing) => {
-    return locales.map((locale) => ({
-      lang: locale,
-      id: listing.id,
-    }));
-  });
-};
+// export const generateStaticParams = async () => {
+//   const { docs: listings } = await getAllListingsData();
+//
+//   return listings.map((listing) => {
+//     return locales.map((locale) => ({
+//       lang: locale,
+//       id: listing.id,
+//     }));
+//   });
+// };
 
 const Page = async ({
-  params: { lang },
+  params: { lang, id },
 }: {
   params: { lang: SupportedLanguage; id: string };
 }) => {
-  const listing = await getListingData();
+  const listing = await getListingData(lang, id);
   const t = await getDictionary(lang);
 
   return (
@@ -100,8 +103,10 @@ const Page = async ({
           </div>
         </div>
       </div>
+      <Suspense fallback={<></>}>
+        <OtherVillas lang={lang} />
+      </Suspense>
 
-      <OtherVillas lang={lang} />
       <NeedHelp lang={lang} />
       <Footer lang={lang} />
     </div>

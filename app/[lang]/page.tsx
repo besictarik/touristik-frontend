@@ -24,7 +24,7 @@ const Page = async ({
 }: {
   params: { lang: SupportedLanguage };
 }) => {
-  const index = await getIndexData();
+  const index = await getIndexData(lang);
   const { blocks } = index;
   return (
     <div className={"bg-light-3"}>

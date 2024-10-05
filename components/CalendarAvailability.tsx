@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import { Dictionary } from "@/lib/types/definitions";
-import { getAvailability, tileClassname } from "@/lib/data";
+import { getAvailability, tileClassname } from "@/lib/placeholder-data";
 
 const CalendarAvailability = ({
   title,

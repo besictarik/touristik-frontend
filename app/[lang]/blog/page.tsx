@@ -26,7 +26,7 @@ const Page = async ({
   params: { lang: SupportedLanguage };
 }) => {
   const t = await getDictionary(lang);
-  const data = await getBlogsData();
+  const data = await getBlogsData(lang);
 
   return (
     <div className={"bg-light-3"}>

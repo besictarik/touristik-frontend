@@ -131,3 +131,14 @@ export type Collection<T> = {
   prevPage: number | null;
   nextPage: number | null;
 };
+
+export type ListingParams = {
+  location?: string | null;
+  rooms?: string | null;
+  bathrooms?: string | null;
+  people?: string | null;
+  minPrice?: string | null;
+  maxPrice?: string | null;
+  ammenities?: string | null;
+  page?: string | null;
+};

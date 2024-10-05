@@ -2,27 +2,16 @@ import React, { Suspense } from "react";
 import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
 import { SupportedLanguage } from "@/lib/types/definitions";
-import { getDictionary, locales } from "@/lib/utils";
+import { getDictionary, getListingParams, locales } from "@/lib/utils";
 import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
 import SearchForm from "@/components/SearchForm";
 import { FormsProvider } from "@/components/providers/FormsProvider";
 import FilterForm from "@/components/FilterForm";
 import Pagination from "@/components/Pagination";
-import { getAmmenitiesData, getListingsData } from "@/lib/data";
+import { getListingsData, getAmmenitiesData } from "@/lib/data";
 import Listings from "@/components/Listings";
 import { Metadata } from "next";
-
-type SearchParamsType = {
-  location?: string;
-  rooms?: string;
-  bathrooms?: string;
-  guests?: string;
-  minPrice?: string;
-  maxPrice?: string;
-  ammenities?: string;
-  page?: string;
-};
 
 export const generateMetadata = async ({
   params: { lang },
@@ -43,13 +32,15 @@ export const generateStaticParams = async () => {
 
 const Page = async ({
   params: { lang },
+  searchParams,
 }: {
   params: { lang: SupportedLanguage };
-  searchParams: SearchParamsType;
+  searchParams: URLSearchParams;
 }) => {
   const t = await getDictionary(lang);
-  const data = await getListingsData();
-  const ammenities = await getAmmenitiesData();
+  const listingParams = getListingParams(new URLSearchParams(searchParams));
+  const data = await getListingsData(listingParams);
+  const ammenities = await getAmmenitiesData(lang);
 
   return (
     <div className={"bg-light-3"}>
