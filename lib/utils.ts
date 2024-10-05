@@ -225,7 +225,7 @@ export const getDayBookingStatus = (
 
     if (
       checkDate >= new Date(midPeriod.start) &&
-      checkDate < new Date(midPeriod.end)
+      checkDate <= new Date(midPeriod.end)
     ) {
       return "fullyBookedDate"; // Date is within this period
     } else if (checkDate < new Date(midPeriod.start)) {
