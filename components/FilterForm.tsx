@@ -51,7 +51,7 @@ const FilterForm = ({
             type="number"
             id={"minPrice"}
             name="minPrice"
-            className="block w-full bg-transparent py-2.5 border-b-dark-3 border-0 border-b text-dark-5"
+            className="block w-full bg-transparent py-2.5 sm:py-1 border-b-dark-3 border-0 border-b text-dark-5"
             placeholder="0"
             defaultValue={query.minPrice}
           />
@@ -72,7 +72,7 @@ const FilterForm = ({
             type="number"
             id={"maxPrice"}
             name="maxPrice"
-            className="block w-full bg-transparent py-2.5 border-b-dark-3 border-0 border-b text-dark-5"
+            className="block w-full bg-transparent py-2.5 sm:py-1 border-b-dark-3 border-0 border-b text-dark-5"
             placeholder="0"
             defaultValue={query.maxPrice}
           />

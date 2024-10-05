@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-// import { getDictionary } from "@/lib/utils";
 import { Dictionary, SupportedLanguage } from "@/lib/types/definitions";
 import { useEffect, useState } from "react";
 
