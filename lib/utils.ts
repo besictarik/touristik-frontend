@@ -205,3 +205,35 @@ export const getTwoRandomNumbers = (range: number): number[] => {
 
   return Array.from(randomNumbers);
 };
+
+export const getDayBookingStatus = (
+  bookedPeriods: { start: Date; end: Date }[],
+  specificDate: Date,
+  view: string,
+) => {
+  if (view !== "month") return "";
+
+  const checkDate = new Date(specificDate);
+
+  // Binary search for the period that may contain the specific date
+  let left = 0;
+  let right = bookedPeriods.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    const midPeriod = bookedPeriods[mid];
+
+    if (
+      checkDate >= new Date(midPeriod.start) &&
+      checkDate < new Date(midPeriod.end)
+    ) {
+      return "fullyBookedDate"; // Date is within this period
+    } else if (checkDate < new Date(midPeriod.start)) {
+      right = mid - 1; // Move left
+    } else {
+      left = mid + 1; // Move right
+    }
+  }
+
+  return ""; // Not booked on this date
+};

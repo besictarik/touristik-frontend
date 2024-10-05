@@ -100,3 +100,11 @@ export const getExtraListings = async (): Promise<Listing[]> => {
   const randomNumbers = getTwoRandomNumbers(listings.length);
   return randomNumbers.map((number) => listings[number]);
 };
+
+export const getAvailability = async (availabilityURL: string) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/availability?iCalURL=${availabilityURL}`,
+    { cache: "no-cache" },
+  );
+  return await response.json();
+};

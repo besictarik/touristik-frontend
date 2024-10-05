@@ -61,7 +61,7 @@ export const getAvailability = async (availabilityURL: string) => {
   return await response.json();
 };
 
-export const tileClassname = (
+export const getDayBookingStatus = (
   bookedPeriods: { start: Date; end: Date }[],
   specificDate: Date,
   view: string,
@@ -87,24 +87,6 @@ export const tileClassname = (
       right = mid - 1; // Move left
     } else {
       left = mid + 1; // Move right
-    }
-  }
-
-  // Check the periods around the found index
-  if (left > 0) {
-    const previousPeriod = bookedPeriods[left - 1];
-    if (checkDate.getTime() === new Date(previousPeriod.end).getTime()) {
-      return "transitionDay"; // Transition day
-    }
-    if (checkDate.getTime() === new Date(previousPeriod.start).getTime()) {
-      return "checkinDate"; // Check-in date
-    }
-  }
-
-  if (left < bookedPeriods.length) {
-    const nextPeriod = bookedPeriods[left];
-    if (checkDate.getTime() === new Date(nextPeriod.start).getTime()) {
-      return "checkoutDate"; // Check-out date
     }
   }
 

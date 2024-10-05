@@ -5,7 +5,7 @@ export const GET = async (req: NextRequest) => {
   const url = req.nextUrl.searchParams.get("iCalURL");
   try {
     // Fetch the document from Payload CMS using its API
-    const response = await fetch(`${url}`);
+    const response = await fetch(`${url}`, { cache: "no-cache" });
 
     if (response.ok) {
       const icsData = await response.text();
