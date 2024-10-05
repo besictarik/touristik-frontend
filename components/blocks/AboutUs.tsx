@@ -20,7 +20,7 @@ const AboutUs = ({ block }: { block: BlockType }) => {
           {block.employees.map((employee) => {
             return (
               <div key={employee.id}>
-                <div className="w-full h-[300px] relative ">
+                <div className="w-full sm:h-[300px] h-[500px] relative ">
                   <Image
                     unoptimized
                     src={`${process.env.IMAGE_BASE_URL}${(employee.photo as Photo).url}`}

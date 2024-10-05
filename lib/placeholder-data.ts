@@ -62,58 +62,51 @@ export const getAvailability = async (availabilityURL: string) => {
 };
 
 export const tileClassname = (
-  bookedRanges: { start: Date; end: Date }[],
-  date: Date,
+  bookedPeriods: { start: Date; end: Date }[],
+  specificDate: Date,
   view: string,
 ) => {
-  if (view === "month") {
-    let isCheckin = false,
-      isCheckout = false,
-      isBooked = false;
+  if (view !== "month") return "";
 
-    // Convert the current date to "Europe/Zagreb" time zone
-    const dateInZagrebTimezone = new Date(
-      date.toLocaleString("en-US", { timeZone: "Europe/Zagreb" }),
-    );
+  const checkDate = new Date(specificDate);
 
-    for (const range of bookedRanges) {
-      // Convert booked range dates to "Europe/Zagreb" time zone
-      const start = new Date(range.start);
-      const end = new Date(range.end);
-      const startInZagrebTimezone = new Date(
-        start.toLocaleString("en-US", {
-          timeZone: "Europe/Zagreb",
-        }),
-      );
+  // Binary search for the period that may contain the specific date
+  let left = 0;
+  let right = bookedPeriods.length - 1;
 
-      const endInZagrebTimezone = new Date(
-        end.toLocaleString("en-US", {
-          timeZone: "Europe/Zagreb",
-        }),
-      );
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    const midPeriod = bookedPeriods[mid];
 
-      if (isSameDateAs(dateInZagrebTimezone, startInZagrebTimezone)) {
-        isCheckin = true;
-      }
-      if (isSameDateAs(dateInZagrebTimezone, endInZagrebTimezone)) {
-        isCheckout = true;
-      }
-      if (
-        dateInZagrebTimezone > startInZagrebTimezone &&
-        dateInZagrebTimezone < endInZagrebTimezone
-      ) {
-        isBooked = true;
-      }
-    }
-
-    if (isCheckin && isCheckout) {
-      return "transitionDay"; // Transition day (both check-in and check-out)
-    } else if (isCheckin) {
-      return "checkinDate"; // Check-in date
-    } else if (isCheckout) {
-      return "checkoutDate"; // Check-out date
-    } else if (isBooked) {
-      return "fullyBookedDate"; // Fully booked date
+    if (
+      checkDate >= new Date(midPeriod.start) &&
+      checkDate < new Date(midPeriod.end)
+    ) {
+      return "fullyBookedDate"; // Date is within this period
+    } else if (checkDate < new Date(midPeriod.start)) {
+      right = mid - 1; // Move left
+    } else {
+      left = mid + 1; // Move right
     }
   }
+
+  // Check the periods around the found index
+  if (left > 0) {
+    const previousPeriod = bookedPeriods[left - 1];
+    if (checkDate.getTime() === new Date(previousPeriod.end).getTime()) {
+      return "transitionDay"; // Transition day
+    }
+    if (checkDate.getTime() === new Date(previousPeriod.start).getTime()) {
+      return "checkinDate"; // Check-in date
+    }
+  }
+
+  if (left < bookedPeriods.length) {
+    const nextPeriod = bookedPeriods[left];
+    if (checkDate.getTime() === new Date(nextPeriod.start).getTime()) {
+      return "checkoutDate"; // Check-out date
+    }
+  }
+
+  return ""; // Not booked on this date
 };
