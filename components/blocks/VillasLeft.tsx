@@ -34,10 +34,10 @@ const VillasLeft = async ({
         <div className="col-span-1 sm:order-1">
           <div className="sticky sm:static top-10 flex flex-col gap-5">
             <div className="h-[5px] w-[170px] bg-dark-1" />
-            <h2 className="text-dark-3 text-3xl font-serif font-bold">
+            <h2 className="text-dark-3 text-4xl font-serif font-bold">
               {block.title}
             </h2>
-            <p className="text-dark-5">{block.subtitle}</p>
+            <p className="text-dark-5 text-[17px]">{block.subtitle}</p>
           </div>
         </div>
       </div>

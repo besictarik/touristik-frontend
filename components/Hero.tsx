@@ -37,10 +37,10 @@ const Hero = async ({
       <Navbar t={t} lang={lang} variant={"beige"} />
       <div className={"pt-36 sm:pt-20"}>
         <div className="sm:text-balance w-full max-w-screen-xl sm:w-10/12 mx-auto my-10">
-          <h1 className="font-serif text-4xl mb-5 text-light-5 font-bold">
+          <h1 className="font-serif text-5xl mb-5 text-light-5 font-bold">
             {t.Index.title}
           </h1>
-          <p className="w-1/2 sm:w-full sm:text-balance text-light-1">
+          <p className="w-1/2 sm:w-full sm:text-balance text-light-1 text-[18px]">
             {t.Index.description}
           </p>
         </div>

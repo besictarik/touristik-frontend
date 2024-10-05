@@ -27,7 +27,7 @@ const SearchForm = ({ t }: { t: Dictionary["Search"] }) => {
           type="text"
           id={"location"}
           name="location"
-          className="sm:rounded-none block w-full bg-transparent py-2.5 border-b-dark-3 border-0 border-b"
+          className="sm:rounded-none block w-full bg-transparent py-2.5 sm:py-1 border-b-dark-3 border-0 border-b"
           defaultValue={query.location}
         />
       </div>
@@ -40,7 +40,7 @@ const SearchForm = ({ t }: { t: Dictionary["Search"] }) => {
           type="number"
           id={"rooms"}
           name="rooms"
-          className="sm:rounded-none block w-full bg-transparent py-2.5 border-b-dark-3 border-0 border-b"
+          className="sm:rounded-none block w-full bg-transparent py-2.5 sm:py-1 border-b-dark-3 border-0 border-b"
           defaultValue={query.rooms}
         />
       </div>
@@ -53,7 +53,7 @@ const SearchForm = ({ t }: { t: Dictionary["Search"] }) => {
           type="number"
           id={"bathrooms"}
           name="bathrooms"
-          className="sm:rounded-none block w-full bg-transparent py-2.5 border-b-dark-3 border-0 border-b"
+          className="sm:rounded-none block w-full bg-transparent py-2.5 sm:py-1 border-b-dark-3 border-0 border-b"
           defaultValue={query.bathrooms}
         />
       </div>
@@ -66,7 +66,7 @@ const SearchForm = ({ t }: { t: Dictionary["Search"] }) => {
           type="number"
           id={"guests"}
           name="guests"
-          className="sm:rounded-none block w-full bg-transparent py-2.5 border-b-dark-3 border-0 border-b"
+          className="sm:rounded-none block w-full bg-transparent py-2.5 sm:py-1 border-b-dark-3 border-0 border-b"
           defaultValue={query.guests}
         />
       </div>

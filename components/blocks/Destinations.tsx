@@ -31,7 +31,7 @@ const Destinations = ({ block }: { block: BlockType }) => {
                     style={{ objectFit: "cover" }}
                   />
                 </div>
-                <h2 className="block bg-light-1 p-5">{`Villas in ${destination.location}`}</h2>
+                <h2 className="block bg-light-1 p-5">{`${destination.location}`}</h2>
               </Link>
             );
           })}

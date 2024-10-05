@@ -7,7 +7,7 @@ const Banner = async ({ lang }: { lang: SupportedLanguage }) => {
   const t = await getDictionary(lang);
 
   return (
-    <div className="max-w-screen-xl xl:max-w-screen-lg mx-auto py-4 text-sm text-dark-5 flex sm:flex-col flex-wrap sm:w-10/12 justify-between gap-4 sm:py-5 ">
+    <div className="max-w-screen-xl xl:max-w-screen-lg mx-auto py-4 text-sm text-dark-5 flex sm:flex-col sm:hidden flex-wrap sm:w-10/12 justify-between gap-4 sm:py-5 ">
       <div className="flex gap-4 sm:flex-col">
         <div>
           <div className="mb-2.5 font-semibold">
@@ -15,18 +15,18 @@ const Banner = async ({ lang }: { lang: SupportedLanguage }) => {
           </div>
           <SelectLanguage lang={lang} />
         </div>
-        <div>
-          <div className="mb-2.5 font-semibold">{t.Footer.paymentOptions}</div>
-          <div>
-            <div>
-              {t.Footer.bankTransfer}, PayPal, {t.Footer.cards} (Mastercard,
-              Visa)
-            </div>
-          </div>
-        </div>
+        {/*<div>*/}
+        {/*  <div className="mb-2.5 font-semibold">{t.Footer.paymentOptions}</div>*/}
+        {/*  <div>*/}
+        {/*    <div>*/}
+        {/*      {t.Footer.bankTransfer}, PayPal, {t.Footer.cards} (Mastercard,*/}
+        {/*      Visa)*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
       <div>
-        <div className="flex gap-4 text-right sm:flex-col sm:text-left">
+        <div className="flex gap-7 text-right sm:flex-col sm:text-left">
           <div>
             <div className="mb-2.5 font-semibold">
               🇭🇷 {t.NeedHelp.croNumber}

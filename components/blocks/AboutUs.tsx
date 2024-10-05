@@ -10,13 +10,13 @@ const AboutUs = ({ block }: { block: BlockType }) => {
         <div className="flex flex-col">
           <div className="sticky top-10 flex sm:flex-col items-center gap-5">
             <div className="h-[5px] w-[100px] bg-dark-1" />
-            <h2 className="text-dark-3 text-3xl font-serif font-bold">
+            <h2 className="text-dark-3 text-4xl font-serif font-bold">
               {block.title}
             </h2>
           </div>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-1 mt-10 gap-10">
-          <p>{block.paragraph}</p>
+          <p className={"text-[17px] leading-[28px]"}>{block.paragraph}</p>
           {block.employees.map((employee) => {
             return (
               <div key={employee.id}>
@@ -29,7 +29,8 @@ const AboutUs = ({ block }: { block: BlockType }) => {
                     style={{ objectFit: "cover" }}
                   />
                 </div>
-                <h3 className="mt-5">{employee.employeeName}</h3>
+                <h3 className="mt-5 text-2xl">{employee.employeeName}</h3>
+                <span className={"italic"}>CEO</span>
               </div>
             );
           })}

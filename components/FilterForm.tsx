@@ -99,7 +99,7 @@ const FilterForm = ({
                 className="flex justify-between items-center"
               >
                 <div className="flex items-center">
-                  <div className="w-3 h-3 relative mr-2.5">
+                  <div className="w-4 h-4 relative mr-2.5">
                     <Image
                       unoptimized
                       src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL_ONE_ONLY}${(ammenity.icon as Icon).url}`}
@@ -110,13 +110,19 @@ const FilterForm = ({
                       alt=""
                     />
                   </div>
-                  <label htmlFor={ammenity.id}>{ammenity.ammenity}</label>
+                  <label
+                    htmlFor={ammenity.id}
+                    className={"text-[18px] leading-8 "}
+                  >
+                    {ammenity.ammenity}
+                  </label>
                 </div>
                 <input
                   type="checkbox"
                   id={ammenity.id}
                   name={ammenity.id}
                   defaultChecked={queryAmmenities.includes(ammenity.id)}
+                  className="h-4 w-4 focus:ring-dark-3 appearance-none rounded border border-dark-3 checked:bg-dark-3 checked:border-transparent cursor-pointer"
                 />
               </div>
             );

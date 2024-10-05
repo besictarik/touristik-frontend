@@ -25,7 +25,9 @@ const NeedHelp = async ({ lang }: { lang: SupportedLanguage }) => {
             </div>
             <h3 className="text-2xl font-serif ml-4">{t.NeedHelp.title}</h3>
           </div>
-          <p className="py-4 text-light-1">{t.NeedHelp.paragraph}</p>
+          <p className="py-4 text-light-1 leading-[28px]">
+            {t.NeedHelp.paragraph}
+          </p>
           <div className="flex gap-4">
             <div>
               <div>🇭🇷 {t.NeedHelp.croNumber}</div>

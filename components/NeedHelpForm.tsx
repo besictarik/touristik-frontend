@@ -76,6 +76,7 @@ const NeedHelpForm = ({ t }: { t: Dictionary }) => {
             <textarea
               id={"message"}
               name="message"
+              rows={8}
               className="p-2.5 w-full rounded-none text-dark-5 border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
               placeholder="We'd like to know..."
             />

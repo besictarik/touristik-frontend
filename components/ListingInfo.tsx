@@ -97,7 +97,7 @@ const ListingInfo = async ({
         <div className="text-right md:text-left">
           <h3>
             {t.Listing.from}{" "}
-            <span className="text-2xl text-dark-5">
+            <span className="text-2xl font-medium text-dark-5">
               €
               {(() => {
                 const prices = [];
