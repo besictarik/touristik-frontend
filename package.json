@@ -21,6 +21,7 @@
     "react": "^18",
     "react-calendar": "^5.0.0",
     "react-dom": "^18",
+    "react-scroll-snap-anime-slider": "^1.5.3",
     "sharp": "^0.33.5",
     "slate": "^0.103.0"
   },
