@@ -18,6 +18,20 @@ export const generateMetadata = async ({
   const blog = await getBlogData(lang, id);
   return {
     title: blog.title,
+    openGraph: {
+      title: blog.title,
+      images: `${process.env.IMAGE_BASE_URL}${(blog.photo as Photo).url}`,
+      type: "website",
+      locale: lang,
+    },
+    alternates: {
+      languages: {
+        ...Object.fromEntries(
+          locales.map((locale) => [locale, `/${locale}/blog/${id}`]),
+        ),
+        "x-default": `/blog/${id}`,
+      },
+    },
   };
 };
 

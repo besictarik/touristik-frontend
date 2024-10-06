@@ -1,5 +1,5 @@
 import { getListingData } from "@/lib/data";
-import { getDictionary } from "@/lib/utils";
+import { getDictionary, locales } from "@/lib/utils";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
@@ -30,6 +30,20 @@ export const generateMetadata = async ({
   const listing = await getListingData(lang, id);
   return {
     title: listing.name,
+    openGraph: {
+      title: listing.name,
+      images: `${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`,
+      type: "website",
+      locale: lang,
+    },
+    alternates: {
+      languages: {
+        ...Object.fromEntries(
+          locales.map((locale) => [locale, `/${locale}/listings/${id}`]),
+        ),
+        "x-default": `/listings/${id}`,
+      },
+    },
   };
 };
 

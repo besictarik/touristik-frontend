@@ -1,4 +1,4 @@
-import { locales } from "@/lib/utils";
+import { getDictionary, locales } from "@/lib/utils";
 import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
 import { SupportedLanguage } from "@/lib/types/definitions";
@@ -12,11 +12,34 @@ import AboutUs from "@/components/blocks/AboutUs";
 import SuperLuxurious from "@/components/blocks/SuperLuxurious";
 import BigVillaLeft from "@/components/blocks/BigVillaLeft";
 import BigVillaRight from "@/components/blocks/BigVillaRight";
+import { Metadata } from "next";
 
 export const generateStaticParams = async () => {
   return locales.map((locale) => ({
     lang: locale,
   }));
+};
+
+export const generateMetadata = async ({
+  params: { lang },
+}: {
+  params: { lang: SupportedLanguage };
+}): Promise<Metadata> => {
+  const t = await getDictionary(lang);
+  return {
+    description: t.Index.description,
+    openGraph: {
+      description: t.Index.description,
+      type: "website",
+      locale: lang,
+    },
+    alternates: {
+      languages: {
+        ...Object.fromEntries(locales.map((locale) => [locale, `/${locale}`])),
+        "x-default": "/",
+      },
+    },
+  };
 };
 
 const Page = async ({

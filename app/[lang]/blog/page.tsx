@@ -10,8 +10,30 @@ import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Blog",
+export const generateMetadata = async ({
+  params: { lang },
+}: {
+  params: { lang: SupportedLanguage };
+}): Promise<Metadata> => {
+  const t = await getDictionary(lang);
+  return {
+    title: "Blog",
+    description: t.Blog.description,
+    openGraph: {
+      title: "Blog",
+      description: t.Blog.description,
+      type: "website",
+      locale: lang,
+    },
+    alternates: {
+      languages: {
+        ...Object.fromEntries(
+          locales.map((locale) => [locale, `/${locale}/blog`]),
+        ),
+        "x-default": "/blog",
+      },
+    },
+  };
 };
 
 export const generateStaticParams = async () => {

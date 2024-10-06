@@ -9,6 +9,13 @@ export const metadata: Metadata = {
     template: "%s | TST Touristik",
     default: "TST Touristik",
   },
+  metadataBase: new URL(process.env.BASE_URL || ""),
+  openGraph: {
+    title: {
+      template: "%s | TST Touristik",
+      default: "TST Touristik",
+    },
+  },
 };
 
 const montserrat = Montserrat({

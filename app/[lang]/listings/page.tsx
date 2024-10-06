@@ -21,6 +21,21 @@ export const generateMetadata = async ({
   const t = await getDictionary(lang);
   return {
     title: t.Search.title,
+    description: t.Search.paragraph,
+    openGraph: {
+      title: t.Search.title,
+      description: t.Search.paragraph,
+      type: "website",
+      locale: lang,
+    },
+    alternates: {
+      languages: {
+        ...Object.fromEntries(
+          locales.map((locale) => [locale, `/${locale}/listings`]),
+        ),
+        "x-default": "/listings",
+      },
+    },
   };
 };
 
