@@ -27,9 +27,10 @@ export const GET = async (req: NextRequest) => {
     revalidatePath(`/${locale}/${collection}`);
   });
 
-  locales.forEach((locale) => {
-    revalidatePath(`/${locale}`);
-  });
+  if (collection == "listings")
+    locales.forEach((locale) => {
+      revalidatePath(`/${locale}`);
+    });
 
   return Response.json({ revalidated: true });
 };

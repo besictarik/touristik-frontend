@@ -59,7 +59,7 @@ const Slider = ({
         {/*    className="absolute h-full w-full"*/}
         {/*  >*/}
         <div className={"absolute h-full w-full"}>
-          <Link href={`/`}>
+          <Link href={`/listings/${(listings[0].listing as Listing).id}`}>
             <ListingCard
               lang={lang}
               listing={listings[0].listing as Listing}
