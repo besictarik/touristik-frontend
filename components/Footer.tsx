@@ -11,6 +11,7 @@ import UhpaLogoPNG from "@/public/uhpa.png";
 import PrestigeLogoJPG from "@/public/prestige.jpg";
 import LogoBeigeSVG from "@/public/logo-beige.svg";
 import OfficeSVG from "@/public/office.svg";
+import { Suspense } from "react";
 
 const Footer = async ({ lang }: { lang: SupportedLanguage }) => {
   const t = await getDictionary(lang);
@@ -28,8 +29,10 @@ const Footer = async ({ lang }: { lang: SupportedLanguage }) => {
             />
           </div>
           <div>
-            <div className="mb-2.5">{t.Footer.languageSelection}</div>
-            <SelectLanguage lang={lang} className={"text-dark-5 p-2.5"} />
+            <Suspense fallback={<></>}>
+              <div className="mb-2.5">{t.Footer.languageSelection}</div>
+              <SelectLanguage lang={lang} className={"text-dark-5 p-2.5"} />
+            </Suspense>
           </div>
         </div>
         <div>

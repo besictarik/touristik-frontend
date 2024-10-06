@@ -2,6 +2,7 @@ import Link from "next/link";
 import SelectLanguage from "@/components/SelectLanguage";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import { getDictionary } from "@/lib/utils";
+import { Suspense } from "react";
 
 const Banner = async ({ lang }: { lang: SupportedLanguage }) => {
   const t = await getDictionary(lang);
@@ -10,10 +11,12 @@ const Banner = async ({ lang }: { lang: SupportedLanguage }) => {
     <div className="max-w-screen-xl xl:max-w-screen-lg mx-auto py-4 text-sm text-dark-5 flex sm:flex-col sm:hidden flex-wrap sm:w-10/12 justify-between gap-4 sm:py-5 ">
       <div className="flex gap-4 sm:flex-col">
         <div>
-          <div className="mb-2.5 font-semibold">
-            {t.Footer.languageSelection}
-          </div>
-          <SelectLanguage lang={lang} />
+          <Suspense fallback={<></>}>
+            <div className="mb-2.5 font-semibold">
+              {t.Footer.languageSelection}
+            </div>
+            <SelectLanguage lang={lang} />
+          </Suspense>
         </div>
         {/*<div>*/}
         {/*  <div className="mb-2.5 font-semibold">{t.Footer.paymentOptions}</div>*/}

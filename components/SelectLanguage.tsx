@@ -1,5 +1,8 @@
 "use client";
 
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { SupportedLanguage } from "@/lib/types/definitions";
+
 const SelectLanguage = ({
   lang,
   className,
@@ -7,8 +10,26 @@ const SelectLanguage = ({
   lang: string;
   className?: string;
 }) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const { replace } = useRouter();
+
   // Make it functional
-  const changeLocale = () => {};
+  const changeLocale = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLang = e.currentTarget.value as SupportedLanguage;
+    const pathSegments = pathname.split("/");
+
+    // Replace the first segment with the new language
+    pathSegments.splice(1, 1, newLang); // Replace the segment at index 1
+
+    // Construct the new pathname
+    const newPathname = pathSegments.join("/");
+
+    // Replace the current URL with the new pathname and search params
+    replace(
+      `${newPathname}${searchParams ? `?${searchParams.toString()}` : ""}`,
+    );
+  };
 
   return (
     <select

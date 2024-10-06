@@ -1,6 +1,5 @@
 import { AmmenityItem, Blog, Index, Listing } from "@/lib/types/payload-types";
 import { Collection } from "@/lib/types/definitions";
-import { isSameDateAs } from "@/lib/utils";
 
 export const getIndexData = async (): Promise<Index> => {
   const data = await import(`@/lib/placeholder-data/index.json`);

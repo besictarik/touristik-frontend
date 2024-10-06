@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Dictionary, SupportedLanguage } from "@/lib/types/definitions";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 import LogoBeige from "@/public/logo-beige.svg";
 import LogoDark from "@/public/logo-dark.svg";
@@ -143,8 +143,10 @@ const Navbar = ({
           </li>
           <li>
             <div>
-              <div className="mb-2.5">{t.Footer.languageSelection}</div>
-              <SelectLanguage lang={lang} className={"text-dark-5 p-2.5"} />
+              <Suspense fallback={<></>}>
+                <div className="mb-2.5">{t.Footer.languageSelection}</div>
+                <SelectLanguage lang={lang} className={"text-dark-5 p-2.5"} />
+              </Suspense>
             </div>
           </li>
           <li>
