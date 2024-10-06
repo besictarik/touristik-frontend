@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 
