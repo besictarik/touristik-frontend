@@ -31,7 +31,7 @@ const SuperLuxurious = async ({
         <div className="w-full h-[900px] sm:h-[60vh] max-w-screen-2xl mx-auto relative">
           <Image
             unoptimized
-            src={`${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
             alt={`${listing.name} photo`}
             fill
             sizes={"(min-width: 1536px) 1536px, 100vw"}
@@ -46,7 +46,7 @@ const SuperLuxurious = async ({
               <div className="w-6 h-6 mb-2 relative">
                 <Image
                   unoptimized
-                  src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${((listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                   alt={`${(listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).ammenity} icon`}
                   fill
                   style={{
@@ -60,7 +60,7 @@ const SuperLuxurious = async ({
               <div className="w-6 h-6 mb-2 relative">
                 <Image
                   unoptimized
-                  src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${((listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                   alt={`${(listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).ammenity} icon`}
                   fill
                   style={{
@@ -74,7 +74,7 @@ const SuperLuxurious = async ({
               <div className="w-6 h-6 mb-2 relative">
                 <Image
                   unoptimized
-                  src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${((listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                   alt={`${(listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).ammenity} icon`}
                   fill
                   style={{

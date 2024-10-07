@@ -24,7 +24,7 @@ const ListingCard = ({
         } sm:h-[300px] relative`}
       >
         <Image
-          src={`${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
           alt={`${listing.name} photo`}
           fill
           sizes={"(max-width: 1280px) 85vw, 1280px"}

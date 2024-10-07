@@ -24,7 +24,7 @@ const Destinations = ({ block }: { block: BlockType }) => {
               <Link key={destination.id} href={`${destination.link}`}>
                 <div className="relative h-[300px]">
                   <Image
-                    src={`${process.env.IMAGE_BASE_URL}${(destination.photo as Photo).url}`}
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(destination.photo as Photo).url}`}
                     alt={`${destination.location} photo`}
                     fill
                     sizes={"600px"}

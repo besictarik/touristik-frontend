@@ -30,7 +30,7 @@ const AmmenityCards = ({
                       <div className="relative w-6 h-6">
                         <Image
                           unoptimized
-                          src={`${process.env.IMAGE_BASE_URL}${((ammenityItem.ammenityItem as AmmenityItem).icon as Icon).url}`}
+                          src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${((ammenityItem.ammenityItem as AmmenityItem).icon as Icon).url}`}
                           alt={`${(ammenityItem.ammenityItem as AmmenityItem).ammenity} icon`}
                           fill
                         />

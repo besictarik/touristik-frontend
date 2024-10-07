@@ -26,7 +26,7 @@ const SleepingArrangement = ({
                     <div key={icon.id} className="w-8 h-8 relative">
                       <Image
                         unoptimized
-                        src={`${process.env.IMAGE_BASE_URL}${(icon.icon as Icon).url}`}
+                        src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(icon.icon as Icon).url}`}
                         alt={`${(icon.icon as Icon).iconName} icon`}
                         fill
                         style={{

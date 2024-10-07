@@ -19,7 +19,7 @@ export const handleEmail = async (
   );
 
   const filteredObject = Object.fromEntries(filteredData) as EmailData;
-  filteredObject.pagePath = `${process.env.BASE_URL}${pathname}`;
+  filteredObject.pagePath = `${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`;
 
   const data = await sendEmail(filteredObject);
   if (data.error) return { status: "error" };

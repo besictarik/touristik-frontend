@@ -30,7 +30,7 @@ const Gallery = ({
   return (
     <div id="gallery">
       <a
-        href={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL_ONE_ONLY}${(photos[0].photo as Photo).url}`}
+        href={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(photos[0].photo as Photo).url}`}
         data-pswp-width={(photos[0].photo as Photo).width}
         data-pswp-height={(photos[0].photo as Photo).height}
         target="_blank"
@@ -42,7 +42,7 @@ const Gallery = ({
       {photos.slice(1).map((photo) => (
         <a
           key={photo.id}
-          href={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL_ONE_ONLY}${(photo.photo as Photo).url}`}
+          href={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(photo.photo as Photo).url}`}
           data-pswp-width={`${(photo.photo as Photo).width}`}
           data-pswp-height={`${(photo.photo as Photo).height}`}
           target="_blank"

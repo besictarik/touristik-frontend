@@ -102,7 +102,7 @@ const FilterForm = ({
                   <div className="w-4 h-4 relative mr-2.5">
                     <Image
                       unoptimized
-                      src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL_ONE_ONLY}${(ammenity.icon as Icon).url}`}
+                      src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(ammenity.icon as Icon).url}`}
                       fill
                       style={{
                         objectFit: "cover",

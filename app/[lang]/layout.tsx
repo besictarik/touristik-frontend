@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | TST Touristik",
     default: "TST Touristik",
   },
-  metadataBase: new URL(process.env.BASE_URL || ""),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || ""),
   openGraph: {
     title: {
       template: "%s | TST Touristik",

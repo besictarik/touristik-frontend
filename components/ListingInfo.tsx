@@ -49,7 +49,7 @@ const ListingInfo = async ({
             <div key={index} className="flex flex-col items-center gap-2.5">
               <Image
                 unoptimized
-                src={`${process.env.IMAGE_BASE_URL}${((ammenity.highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${((ammenity.highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                 alt={""}
                 width={32}
                 height={32}

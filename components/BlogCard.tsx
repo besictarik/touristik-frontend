@@ -16,7 +16,7 @@ const BlogCard = async ({
     <div>
       <div className={"relative block aspect-video"}>
         <Image
-          src={`${process.env.IMAGE_BASE_URL}${(blog.photo as Photo).url}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(blog.photo as Photo).url}`}
           alt={`${blog.title} blog photo`}
           fill
           sizes={"(max-width: 640px) 100vw, 630px"}

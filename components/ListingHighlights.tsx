@@ -18,7 +18,7 @@ const ListingHighlights = ({
             <div className="w-14 h-14 relative">
               <Image
                 unoptimized
-                src={`${process.env.IMAGE_BASE_URL}${(highlight.icon as Icon).url}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(highlight.icon as Icon).url}`}
                 alt={`${highlight.title} icon`}
                 fill
               />

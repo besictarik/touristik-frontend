@@ -18,7 +18,7 @@ const Policies = ({
             <div key={policy.id} className="flex items-center">
               <Image
                 unoptimized
-                src={`${process.env.IMAGE_BASE_URL}${(policy.icon as Icon).url}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(policy.icon as Icon).url}`}
                 alt={`${(policy.icon as Icon).iconName} icon`}
                 width={24}
                 height={24}

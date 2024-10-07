@@ -32,7 +32,7 @@ export const generateMetadata = async ({
     title: listing.name,
     openGraph: {
       title: listing.name,
-      images: `${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`,
+      images: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`,
       type: "website",
       locale: lang,
     },
@@ -74,7 +74,7 @@ const Page = async ({
       </div>
       <div className="h-[75vh] w-full relative">
         <Image
-          src={`${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
           alt={`${listing.name} photo`}
           fill
           sizes={"100vw"}

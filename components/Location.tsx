@@ -24,7 +24,7 @@ const Location = ({
               <div key={item.id} className="flex items-center">
                 <Image
                   unoptimized
-                  src={`${process.env.IMAGE_BASE_URL}${(item.icon as Icon).url}`}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(item.icon as Icon).url}`}
                   alt={`${(item.icon as Icon).iconName} icon`}
                   width={30}
                   height={30}

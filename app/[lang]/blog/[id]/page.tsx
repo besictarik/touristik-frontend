@@ -20,7 +20,7 @@ export const generateMetadata = async ({
     title: blog.title,
     openGraph: {
       title: blog.title,
-      images: `${process.env.IMAGE_BASE_URL}${(blog.photo as Photo).url}`,
+      images: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(blog.photo as Photo).url}`,
       type: "website",
       locale: lang,
     },
@@ -76,7 +76,7 @@ const Page = async ({
         </div>
         <div className={"relative block aspect-video"}>
           <Image
-            src={`${process.env.IMAGE_BASE_URL}${(blog.photo as Photo).url}`}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(blog.photo as Photo).url}`}
             alt={`${blog.title} blog photo`}
             fill
             sizes={"(min-width: 1280px) 1280px, 100vw"}

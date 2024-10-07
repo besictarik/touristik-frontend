@@ -29,7 +29,7 @@ const BigVillaLeft = async ({
     <div className="overflow-hidden mb-20 grid grid-cols-5 sm:grid-cols-1 w-full max-w-screen-2xl mx-auto place-items-center">
       <div className="col-span-3 sm:col-span-1 relative w-full h-[75vh] sm:h-[30vh]">
         <Image
-          src={`${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
           alt={`${listing.name} photo`}
           fill
           sizes={"(max-width: 640px) 100vw, 1000px"}
@@ -47,7 +47,7 @@ const BigVillaLeft = async ({
             <div className="w-6 h-6 mb-2 relative">
               <Image
                 unoptimized
-                src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${((listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                 alt={`${(listing.highlightedAmmenities[0].highlightedAmmenity as AmmenityItem).ammenity} photo`}
                 fill
                 style={{
@@ -68,7 +68,7 @@ const BigVillaLeft = async ({
             <div className="w-6 h-6 mb-2 relative">
               <Image
                 unoptimized
-                src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${((listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                 alt={`${(listing.highlightedAmmenities[1].highlightedAmmenity as AmmenityItem).ammenity} photo`}
                 fill
                 style={{
@@ -89,7 +89,7 @@ const BigVillaLeft = async ({
             <div className="w-6 h-6 mb-2 relative">
               <Image
                 unoptimized
-                src={`${process.env.IMAGE_BASE_URL}${((listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${((listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).icon as Icon).url}`}
                 alt={`${(listing.highlightedAmmenities[2].highlightedAmmenity as AmmenityItem).ammenity} photo`}
                 fill
                 style={{
