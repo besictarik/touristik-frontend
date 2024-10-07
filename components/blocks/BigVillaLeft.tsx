@@ -143,7 +143,7 @@ const BigVillaLeft = async ({
             return ` / ${priceType === "night" ? t.Listing.night : t.Listing.week}`;
           })()}
         </div>
-        <Link href="/listings/659fc0a21713ce87e275ee28">
+        <Link href={`/listings/${listing.id}`}>
           <div className="inline-block bg-light-1 border border-dark-5 border-opacity-50 text-dark-3 shadow-drop-shadow-1 px-10 py-3">
             {t.Listing.viewVilla}
           </div>
