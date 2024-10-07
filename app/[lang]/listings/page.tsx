@@ -1,10 +1,7 @@
 import React, { Suspense } from "react";
-import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import { getDictionary, getListingParams, locales } from "@/lib/utils";
-import NeedHelp from "@/components/NeedHelp";
-import Footer from "@/components/Footer";
 import SearchForm from "@/components/SearchForm";
 import { FormsProvider } from "@/components/providers/FormsProvider";
 import FilterForm from "@/components/FilterForm";
@@ -58,8 +55,7 @@ const Page = async ({
   const ammenities = await getAmmenitiesData(lang);
 
   return (
-    <div className={"bg-light-3"}>
-      <Banner lang={lang} />
+    <>
       <div className="relative">
         <Navbar t={t} lang={lang} variant="dark" />
       </div>
@@ -100,9 +96,7 @@ const Page = async ({
         </div>
         {/* Disaster End */}
       </FormsProvider>
-      <NeedHelp lang={lang} />
-      <Footer lang={lang} />
-    </div>
+    </>
   );
 };
 

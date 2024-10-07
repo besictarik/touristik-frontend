@@ -1,13 +1,10 @@
 import React from "react";
 import { getBlogsData } from "@/lib/data";
 import { SupportedLanguage } from "@/lib/types/definitions";
-import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
 import { getDictionary, locales } from "@/lib/utils";
 import Link from "next/link";
 import BlogCard from "@/components/BlogCard";
-import NeedHelp from "@/components/NeedHelp";
-import Footer from "@/components/Footer";
 import { Metadata } from "next";
 
 export const generateMetadata = async ({
@@ -51,8 +48,7 @@ const Page = async ({
   const data = await getBlogsData(lang);
 
   return (
-    <div className={"bg-light-3"}>
-      <Banner lang={lang} />
+    <>
       <div className={"relative"}>
         <Navbar t={t} lang={lang} variant={"dark"} />
       </div>
@@ -73,9 +69,7 @@ const Page = async ({
           })}
         </div>
       </div>
-      <NeedHelp lang={lang} />
-      <Footer lang={lang} />
-    </div>
+    </>
   );
 };
 

@@ -1,9 +1,6 @@
 import { getDictionary, locales } from "@/lib/utils";
-import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
 import { SupportedLanguage } from "@/lib/types/definitions";
-import NeedHelp from "@/components/NeedHelp";
-import Footer from "@/components/Footer";
 import { getIndexData } from "@/lib/data";
 import VillasRight from "@/components/blocks/VillasRight";
 import VillasLeft from "@/components/blocks/VillasLeft";
@@ -50,8 +47,7 @@ const Page = async ({
   const index = await getIndexData(lang);
   const { blocks } = index;
   return (
-    <div className={"bg-light-3"}>
-      <Banner lang={lang} />
+    <>
       <Hero lang={lang} listings={index.listings} />
       {blocks.map((block) => {
         switch (block.blockType) {
@@ -71,9 +67,7 @@ const Page = async ({
             return <BigVillaLeft key={block.id} lang={lang} block={block} />;
         }
       })}
-      <NeedHelp lang={lang} />
-      <Footer lang={lang} />
-    </div>
+    </>
   );
 };
 

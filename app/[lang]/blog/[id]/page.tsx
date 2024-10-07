@@ -1,10 +1,7 @@
-import Banner from "@/components/Banner";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import Navbar from "@/components/Navbar";
 import { formatDate, getDictionary, locales } from "@/lib/utils";
 import Image from "next/image";
-import NeedHelp from "@/components/NeedHelp";
-import Footer from "@/components/Footer";
 import { getBlogData, getBlogsData } from "@/lib/data";
 import { Photo } from "@/lib/types/payload-types";
 import { serializeCMSContent } from "@/lib/cms-helpers";
@@ -58,8 +55,7 @@ const Page = async ({
   const t = await getDictionary(lang);
   const blog = await getBlogData(lang, id);
   return (
-    <div className={"bg-light-3"}>
-      <Banner lang={lang} />
+    <>
       <div className="relative">
         <Navbar t={t} lang={lang} variant={"dark"} />
       </div>
@@ -89,9 +85,7 @@ const Page = async ({
 
         <div className="mt-8">{serializeCMSContent(blog.content)}</div>
       </div>
-      <NeedHelp lang={lang} />
-      <Footer lang={lang} />
-    </div>
+    </>
   );
 };
 

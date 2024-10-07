@@ -1,12 +1,9 @@
 import { getListingData } from "@/lib/data";
 import { getDictionary, locales } from "@/lib/utils";
 import { SupportedLanguage } from "@/lib/types/definitions";
-import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { Photo } from "@/lib/types/payload-types";
-import NeedHelp from "@/components/NeedHelp";
-import Footer from "@/components/Footer";
 import OtherVillas from "@/components/OtherVillas";
 import Gallery from "@/components/Gallery";
 import ListingInfo from "@/components/ListingInfo";
@@ -67,8 +64,7 @@ const Page = async ({
   const t = await getDictionary(lang);
 
   return (
-    <div className={"bg-light-3"}>
-      <Banner lang={lang} />
+    <>
       <div className={"relative"}>
         <Navbar t={t} lang={lang} variant={"beige"} />
       </div>
@@ -121,10 +117,7 @@ const Page = async ({
       <Suspense fallback={<></>}>
         <OtherVillas lang={lang} />
       </Suspense>
-
-      <NeedHelp lang={lang} />
-      <Footer lang={lang} />
-    </div>
+    </>
   );
 };
 
