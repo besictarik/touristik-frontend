@@ -32,7 +32,7 @@ export const FormsProvider = ({
     const filterFormData = new FormData(filterFormRef.current!);
 
     // Update params from search form
-    searchFormData.keys().forEach((key) => {
+    Array.from(searchFormData.keys()).forEach((key) => {
       const newValue = searchFormData.get(key);
       if (newValue) params.set(key, newValue.toString());
     });
@@ -54,7 +54,7 @@ export const FormsProvider = ({
 
     if (params.size) params.set("page", "1");
 
-    replace(`${pathname}?${params.toString()}`, {scroll: false});
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   return (
