@@ -105,6 +105,7 @@ const Page = async ({
               cards={listing.ammenityCards}
             />
             <CalendarAvailability
+              lang={lang}
               title={t.Listing.availability}
               availabilityURL={listing.availability}
             />

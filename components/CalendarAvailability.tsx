@@ -2,15 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
-import { Dictionary } from "@/lib/types/definitions";
+import { Dictionary, SupportedLanguage } from "@/lib/types/definitions";
 import { getAvailability } from "@/lib/data";
 import { getDayBookingStatus } from "@/lib/utils";
 
 const CalendarAvailability = ({
   title,
+  lang,
   availabilityURL,
 }: {
   title: Dictionary["Listing"]["availability"];
+  lang: SupportedLanguage;
   availabilityURL: string;
 }) => {
   const [bookedRanges, setBookedRanges] = useState([]);
@@ -29,6 +31,7 @@ const CalendarAvailability = ({
         tileClassName={({ date, view }) => {
           return getDayBookingStatus(bookedRanges, date, view);
         }}
+        locale={lang}
         showDoubleView={true}
         prev2Label={null}
         next2Label={null}
