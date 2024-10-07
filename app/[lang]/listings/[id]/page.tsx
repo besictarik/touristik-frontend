@@ -74,10 +74,10 @@ const Page = async ({
       </div>
       <div className="h-[75vh] w-full relative">
         <Image
-          unoptimized
           src={`${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
           alt={`${listing.name} photo`}
           fill
+          sizes={"100vw"}
           style={{ objectFit: "cover" }}
           priority
         />

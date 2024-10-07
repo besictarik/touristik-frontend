@@ -24,10 +24,10 @@ const Destinations = ({ block }: { block: BlockType }) => {
               <Link key={destination.id} href={`${destination.link}`}>
                 <div className="relative h-[300px]">
                   <Image
-                    unoptimized
                     src={`${process.env.IMAGE_BASE_URL}${(destination.photo as Photo).url}`}
                     alt={`${destination.location} photo`}
                     fill
+                    sizes={"600px"}
                     style={{ objectFit: "cover" }}
                   />
                 </div>

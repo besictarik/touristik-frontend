@@ -14,14 +14,18 @@ const BlogCard = async ({
   const t = await getDictionary(lang);
   return (
     <div>
-      <Image
-        unoptimized
-        src={`${process.env.IMAGE_BASE_URL}${(blog.photo as Photo).url}`}
-        alt={`${blog.title} blog photo`}
-        width={(blog.photo as Photo).width!}
-        height={(blog.photo as Photo).height!}
-        className="aspect-video object-cover"
-      />
+      <div className={"relative block aspect-video"}>
+        <Image
+          src={`${process.env.IMAGE_BASE_URL}${(blog.photo as Photo).url}`}
+          alt={`${blog.title} blog photo`}
+          fill
+          sizes={"(max-width: 640px) 100vw, 630px"}
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </div>
+
       <h3 className="mt-5 text-dark-3 text-pretty">
         {t.Blog.published}: {formatDate(blog.createdAt)}
       </h3>

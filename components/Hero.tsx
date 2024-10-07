@@ -25,10 +25,11 @@ const Hero = async ({
       className="relative"
     >
       <Image
-        unoptimized
         src={CroatiaPNG}
         alt={""}
         fill
+        sizes={"100vw"}
+        priority
         style={{
           objectFit: "cover",
         }}

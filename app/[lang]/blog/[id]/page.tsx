@@ -74,15 +74,19 @@ const Page = async ({
             </h3>
           )}
         </div>
-        <Image
-          unoptimized
-          src={`${process.env.IMAGE_BASE_URL}${(blog.photo as Photo).url}`}
-          alt={`${blog.title} blog photo`}
-          width={(blog.photo as Photo).width!}
-          height={(blog.photo as Photo).height!}
-          className="aspect-video object-cover"
-          priority
-        />
+        <div className={"relative block aspect-video"}>
+          <Image
+            src={`${process.env.IMAGE_BASE_URL}${(blog.photo as Photo).url}`}
+            alt={`${blog.title} blog photo`}
+            fill
+            sizes={"(min-width: 1280px) 1280px, 100vw"}
+            style={{
+              objectFit: "cover",
+            }}
+            priority
+          />
+        </div>
+
         <div className="mt-8">{serializeCMSContent(blog.content)}</div>
       </div>
       <NeedHelp lang={lang} />

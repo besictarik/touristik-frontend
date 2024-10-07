@@ -22,10 +22,10 @@ const AboutUs = ({ block }: { block: BlockType }) => {
               <div key={employee.id}>
                 <div className="w-full sm:h-[300px] h-[500px] relative ">
                   <Image
-                    unoptimized
                     src={`${process.env.IMAGE_BASE_URL}${(employee.photo as Photo).url}`}
                     alt={`${employee.employeeName} photo`}
                     fill
+                    sizes={"(max-width: 640px) 100vw, 400px"}
                     style={{ objectFit: "cover" }}
                   />
                 </div>

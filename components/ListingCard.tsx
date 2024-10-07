@@ -27,8 +27,8 @@ const ListingCard = ({
           src={`${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
           alt={`${listing.name} photo`}
           fill
+          sizes={"(max-width: 1280px) 85vw, 1280px"}
           style={{ objectFit: "cover" }}
-          unoptimized
         />
         {listing.tag && (
           <div className="absolute left-0 top-0 bg-light-5 py-2 px-4 m-4 text-dark-5 text-xl">

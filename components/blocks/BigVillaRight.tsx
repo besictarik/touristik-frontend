@@ -140,10 +140,10 @@ const BigVillaRight = async ({
       </div>
       <div className="col-span-3 sm:col-span-1 relative w-full h-[75vh] sm:h-[30vh]">
         <Image
-          unoptimized
           src={`${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
           alt={`${listing.name} photo`}
           fill
+          sizes={"(max-width: 640px) 100vw, 1000px"}
           style={{
             objectFit: "cover",
           }}

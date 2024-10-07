@@ -34,6 +34,7 @@ const SuperLuxurious = async ({
             src={`${process.env.IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
             alt={`${listing.name} photo`}
             fill
+            sizes={"(min-width: 1536px) 1536px, 100vw"}
             style={{ objectFit: "cover" }}
           />
         </div>
