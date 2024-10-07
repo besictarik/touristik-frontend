@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
+import AcceptPolicy from "@/components/AcceptPolicy";
 
 // Have to finish metadata
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${playfairDisplay.variable} font-sans text-dark-5 antialiased`}
       >
         {children}
+        <AcceptPolicy />
       </body>
     </html>
   );

@@ -3,7 +3,13 @@ import { getLocale, locales } from "@/lib/utils";
 
 export const middleware = (request: NextRequest) => {
   const { pathname } = request.nextUrl;
-  const cookiesLocale = request.cookies.get("lang")?.value;
+
+  const cookiesConsent = request.cookies.get("cookiesConsent")?.value;
+  const cookiesAccepted = cookiesConsent === "agree-to-all";
+
+  const cookiesLocale = cookiesAccepted
+    ? request.cookies.get("lang")?.value
+    : undefined;
 
   const pathnameLocale = locales.find(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
@@ -17,7 +23,7 @@ export const middleware = (request: NextRequest) => {
     if (cookiesLocale === pathnameLocale) return response;
 
     // Set the cookie to the new locale
-    response.cookies.set("lang", pathnameLocale);
+    if (cookiesAccepted) response.cookies.set("lang", pathnameLocale);
     return response; // Return the modified response
   }
 
@@ -29,7 +35,7 @@ export const middleware = (request: NextRequest) => {
 
   // If no locale found, determine the default locale
   const locale = getLocale(request);
-  response.cookies.set("lang", locale);
+  if (cookiesAccepted) response.cookies.set("lang", locale);
 
   request.nextUrl.pathname = `/${locale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
@@ -37,6 +43,6 @@ export const middleware = (request: NextRequest) => {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|icon.ico|sitemap.xml|robots.txt).*)",
+    "/((?!api|_next/static|_next/image|sitemap.xml|robots.txt|[a-z]{2}/icon\\.ico).*)",
   ],
 };

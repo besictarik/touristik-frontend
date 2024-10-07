@@ -12,7 +12,7 @@ const SelectLanguage = ({
 }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { replace } = useRouter();
+  const { replace, refresh } = useRouter();
 
   // Make it functional
   const changeLocale = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -29,6 +29,7 @@ const SelectLanguage = ({
     replace(
       `${newPathname}${searchParams ? `?${searchParams.toString()}` : ""}`,
     );
+    refresh();
   };
 
   return (
