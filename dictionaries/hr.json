@@ -93,5 +93,12 @@
     "aboutUs": "O nama",
     "contactUs": "Kontakt",
     "extras": "Dodatno"
+  },
+  "PolicyConsent": {
+    "title": "Poštujemo vašu privatnost!",
+    "description": "Klikom na „Prihvati sve“ slažete se da naša web stranica može pohraniti kolačiće na vašem uređaju i otkriti informacije u skladu s našom Politikom kolačića.",
+    "accept-all": "Prihvati sve",
+    "accept-required-only": "Prihvati samo obavezne",
+    "manage-preferences": "Upravljanje postavkama"
   }
 }

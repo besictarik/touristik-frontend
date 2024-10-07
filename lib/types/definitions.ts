@@ -98,6 +98,14 @@ type Footer = {
   extras: string;
 };
 
+type PolicyConsent = {
+  title: string;
+  description: string;
+  "accept-all": string;
+  "accept-required-only": string;
+  "manage-preferences": string;
+};
+
 export type Dictionary = {
   Index: Index;
   Search: Search;
@@ -105,6 +113,7 @@ export type Dictionary = {
   Blog: Blog;
   NeedHelp: NeedHelp;
   Footer: Footer;
+  PolicyConsent: PolicyConsent;
 };
 
 export type EmailData = {

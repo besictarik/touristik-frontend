@@ -93,5 +93,12 @@
     "aboutUs": "About us",
     "contactUs": "Contact us",
     "extras": "Extras"
+  },
+  "PolicyConsent": {
+    "title": "We respect your privacy!",
+    "description": "By clicking “Accept all”, you agree that our website can store cookies on your device and disclose information in accordance with our Cookie Policy.",
+    "accept-all": "Accept all",
+    "accept-required-only": "Accept required only",
+    "manage-preferences": "Manage preferences"
   }
 }

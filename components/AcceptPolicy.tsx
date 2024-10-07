@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { SupportedLanguage } from "@/lib/types/definitions";
+import { Dictionary, SupportedLanguage } from "@/lib/types/definitions";
 import { useEffect, useState } from "react";
+import { getDictionary } from "@/lib/utils";
 
 const AcceptPolicy = () => {
   const { lang } = useParams<{ lang: SupportedLanguage; id?: string }>();
   const [isOpen, setIsOpen] = useState(false);
+  const [t, setT] = useState<Dictionary | null>(null);
 
   const acceptCookies = async () => {
     // Do something with cookies
@@ -22,9 +24,11 @@ const AcceptPolicy = () => {
     (async () => {
       const res = await fetch("/api/cookies");
       const { cookiesConsent } = await res.json();
+      const t = await getDictionary(lang);
+      setT(t);
       if (cookiesConsent !== "agree-to-all") setIsOpen(true);
     })();
-  }, []);
+  }, [lang]);
 
   return (
     <div
@@ -32,12 +36,10 @@ const AcceptPolicy = () => {
     >
       <div className={"px-4 pt-4 pb-5"}>
         <span className={"font-medium text-lg block mb-1.5"}>
-          We respect your privacy!
+          {t?.PolicyConsent.title}
         </span>
         <span className={"font-light block"}>
-          By clicking “Accept all”, you agree that our website can store cookies
-          on your device and disclose information in accordance with our Cookie
-          Policy.
+          {t?.PolicyConsent.description}
         </span>
       </div>
       <div className={"flex flex-col px-4 gap-2.5 mb-3"}>
@@ -47,7 +49,7 @@ const AcceptPolicy = () => {
             "bg-[rgb(48,54,60)] rounded-md text-white px-4 py-3 font-medium"
           }
         >
-          Accept all
+          {t?.PolicyConsent["accept-all"]}
         </button>
         <button
           onClick={acceptCookies}
@@ -55,14 +57,14 @@ const AcceptPolicy = () => {
             "bg-[rgb(234,239,242)] rounded-md text-black px-4 py-3 font-medium"
           }
         >
-          Accept required only
+          {t?.PolicyConsent["accept-required-only"]}
         </button>
         <button
           className={
             "bg-[rgb(234,239,242)] rounded-md text-black px-4 py-3 font-medium"
           }
         >
-          Manage preferences
+          {t?.PolicyConsent["manage-preferences"]}
         </button>
       </div>
       <div
@@ -72,13 +74,13 @@ const AcceptPolicy = () => {
           href={`/${lang}/blog/65c0eb0b6aa1d2146296e952`}
           className={"font-normal"}
         >
-          Privacy Policy
+          {t?.Footer.privacyPolicy}
         </Link>
         <Link
           href={`/${lang}/blog/65c0ec0d6aa1d2146296e9ce`}
           className={"font-normal"}
         >
-          Terms & Conditions
+          {t?.Footer.termsOfService}
         </Link>
       </div>
     </div>
