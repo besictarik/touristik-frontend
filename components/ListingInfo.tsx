@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getDictionary } from "@/lib/utils";
+import { getDictionary, getListingMinPrice } from "@/lib/utils";
 import { SupportedLanguage } from "@/lib/types/definitions";
 import { AmmenityItem, Icon, Listing } from "@/lib/types/payload-types";
 
@@ -18,6 +18,7 @@ const ListingInfo = async ({
   hasBorderAndShadow?: boolean;
 }) => {
   const t = await getDictionary(lang);
+  const { price: minPrice, priceType } = getListingMinPrice(listing.pricing);
 
   return (
     <div
@@ -98,38 +99,9 @@ const ListingInfo = async ({
           <h3>
             {t.Listing.from}{" "}
             <span className="text-2xl font-medium text-dark-5">
-              €
-              {(() => {
-                const prices = [];
-                let minPrice = Infinity; // Initialize minPrice to a high value
-
-                listing.pricing.forEach((pricingItem) => {
-                  prices.push(pricingItem.price);
-
-                  if (pricingItem.price < minPrice) {
-                    minPrice = pricingItem.price;
-                  }
-                });
-
-                return `${minPrice}`;
-              })()}
+              €{minPrice}
             </span>
-            {(() => {
-              const prices = [];
-              let minPrice = Infinity; // Initialize minPrice to a high value
-              let priceType = "";
-
-              listing.pricing.forEach((pricingItem) => {
-                prices.push(pricingItem.price);
-
-                if (pricingItem.price < minPrice) {
-                  minPrice = pricingItem.price;
-                  priceType = pricingItem.priceType;
-                }
-              });
-
-              return ` / ${priceType === "night" ? t.Listing.night : t.Listing.week}`;
-            })()}
+            {` / ${priceType === "night" ? t.Listing.night : t.Listing.week}`}
           </h3>
         </div>
       </div>

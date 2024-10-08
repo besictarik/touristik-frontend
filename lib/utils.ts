@@ -7,6 +7,7 @@ import {
   ListingParams,
   SupportedLanguage,
 } from "@/lib/types/definitions";
+import { Listing } from "@/lib/types/payload-types";
 
 export const locales: SupportedLanguage[] = ["en", "de", "hr"];
 
@@ -242,4 +243,26 @@ export const getCookieExpiry = (years: number) => {
   const expires = new Date();
   expires.setFullYear(expires.getFullYear() + years);
   return expires;
+};
+
+export const getListingMinPrice = (
+  pricing: Listing["pricing"],
+): { price: number; priceType: "night" | "week" | "" } => {
+  const { price, priceType } = pricing.reduce(
+    (minPricing, currentPricing) => {
+      if (currentPricing.price < minPricing.price) {
+        return {
+          price: currentPricing.price,
+          priceType: currentPricing.priceType,
+        };
+      }
+      return minPricing;
+    },
+    {
+      price: Infinity,
+      priceType: "night" as Listing["pricing"][number]["priceType"],
+    },
+  );
+
+  return { price: price, priceType: priceType };
 };
