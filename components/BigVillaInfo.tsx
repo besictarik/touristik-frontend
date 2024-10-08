@@ -87,7 +87,8 @@ const BigVillaInfo = ({
         </div>
       </div>
       <div>
-        {t.from} <span className="text-2xl text-dark-5">€{minPrice}</span>
+        {t.from}{" "}
+        <span className="text-2xl font-medium text-dark-5">€{minPrice}</span>
         {` / ${priceType === "night" ? t.night : t.week}`}
       </div>
       <Link href={`/listings/${listing.id}`}>

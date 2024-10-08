@@ -8,7 +8,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { SupportedLanguage } from "@/lib/types/definitions";
-import { getDictionary } from "@/lib/utils";
+import { getDictionary, getListingMinPrice } from "@/lib/utils";
 
 type BlockType = Extract<
   Index["blocks"][number],
@@ -23,8 +23,9 @@ const SuperLuxurious = async ({
   block: BlockType;
 }) => {
   const t = await getDictionary(lang);
-
   const listing = block.listing as Listing;
+  const { price: minPrice, priceType } = getListingMinPrice(listing.pricing);
+
   return (
     <Link href={`/listings/${listing.id}`}>
       <div className="mt-20 w-full h-auto">
@@ -88,38 +89,9 @@ const SuperLuxurious = async ({
           <div>
             {t.Listing.from}{" "}
             <span className="text-2xl font-medium text-dark-5">
-              €
-              {(() => {
-                const prices = [];
-                let minPrice = Infinity; // Initialize minPrice to a high value
-
-                listing.pricing.forEach((pricingItem) => {
-                  prices.push(pricingItem.price);
-
-                  if (pricingItem.price < minPrice) {
-                    minPrice = pricingItem.price;
-                  }
-                });
-
-                return `${minPrice}`;
-              })()}
+              €{minPrice}
             </span>
-            {(() => {
-              const prices = [];
-              let minPrice = Infinity; // Initialize minPrice to a high value
-              let priceType = "";
-
-              listing.pricing.forEach((pricingItem) => {
-                prices.push(pricingItem.price);
-
-                if (pricingItem.price < minPrice) {
-                  minPrice = pricingItem.price;
-                  priceType = pricingItem.priceType;
-                }
-              });
-
-              return ` / ${priceType === "night" ? t.Listing.night : t.Listing.week}`;
-            })()}
+            {` / ${priceType === "night" ? t.Listing.night : t.Listing.week}`}
           </div>
         </div>
       </div>
