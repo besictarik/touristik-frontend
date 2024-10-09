@@ -3,19 +3,12 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
-const Pagination = ({
-  totalPages,
-  page,
-  nextPage,
-  prevPage,
-}: {
-  totalPages: number;
-  page: number;
-  nextPage: number | null;
-  prevPage: number | null;
-}) => {
+const Pagination = ({ totalPages }: { totalPages: number }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const page = Number(searchParams.get("page")) || 1;
+  const prevPage = page > 1 ? page - 1 : null;
+  const nextPage = page < totalPages ? page + 1 : null;
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);

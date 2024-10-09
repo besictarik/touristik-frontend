@@ -6,7 +6,7 @@ import SearchForm from "@/components/SearchForm";
 import { FormsProvider } from "@/components/providers/FormsProvider";
 import FilterForm from "@/components/FilterForm";
 import Pagination from "@/components/Pagination";
-import { getListingsData, getAmmenitiesData } from "@/lib/data";
+import { getAmmenitiesData, getListingsCount } from "@/lib/data";
 import Listings from "@/components/Listings";
 import { Metadata } from "next";
 
@@ -51,8 +51,11 @@ const Page = async ({
 }) => {
   const t = await getDictionary(lang);
   const listingParams = getListingParams(new URLSearchParams(searchParams));
-  const data = await getListingsData(lang, listingParams);
-  const ammenities = await getAmmenitiesData(lang);
+  const [listingsCount, ammenities] = await Promise.all([
+    getListingsCount(listingParams),
+    getAmmenitiesData(lang),
+  ]);
+  const totalPages = Math.ceil(listingsCount / 10);
 
   return (
     <>
@@ -82,14 +85,13 @@ const Page = async ({
               </Suspense>
             </div>
             <div className="col-span-2 sm:col-span-1 flex flex-col gap-10">
-              <Listings lang={lang} listings={data.docs} />
-              <Suspense fallback={<></>}>
-                <Pagination
-                  totalPages={data.totalPages}
-                  page={data.page}
-                  nextPage={data.nextPage}
-                  prevPage={data.prevPage}
+              <Suspense fallback={t.Search.loading}>
+                <Listings
+                  lang={lang}
+                  params={listingParams}
+                  noResultsMessage={t.Search.noResults}
                 />
+                <Pagination totalPages={totalPages} />
               </Suspense>
             </div>
           </div>

@@ -59,6 +59,20 @@ export const getListingsData = async (
   return await res.json();
 };
 
+export const getListingsCount = async (
+  params?: ListingParams,
+): Promise<number> => {
+  const { query, page } = getListingsQuery(params || {});
+  const url = `${process.env.API_URL}/api/listings?${query}&draft=false&page=${page}`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+  });
+  const { totalDocs } = await res.json();
+  return totalDocs;
+};
+
 export const getAmmenitiesData = async (
   lang: SupportedLanguage,
 ): Promise<Collection<AmmenityItem>> => {
