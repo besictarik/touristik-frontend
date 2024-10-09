@@ -46,10 +46,11 @@ export const getBlogData = async (
 };
 
 export const getListingsData = async (
+  lang: SupportedLanguage,
   params?: ListingParams,
 ): Promise<Collection<Listing>> => {
   const { query, page } = getListingsQuery(params || {});
-  const url = `${process.env.API_URL}/api/listings?${query}&draft=false&page=${page}`;
+  const url = `${process.env.API_URL}/api/listings?${query}&locale=${lang}&draft=false&page=${page}`;
   const res = await fetch(url, {
     headers: {
       Authorization: `${process.env.API_KEY}`,

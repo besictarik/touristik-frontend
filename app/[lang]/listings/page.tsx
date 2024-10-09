@@ -51,7 +51,7 @@ const Page = async ({
 }) => {
   const t = await getDictionary(lang);
   const listingParams = getListingParams(new URLSearchParams(searchParams));
-  const data = await getListingsData(listingParams);
+  const data = await getListingsData(lang, listingParams);
   const ammenities = await getAmmenitiesData(lang);
 
   return (

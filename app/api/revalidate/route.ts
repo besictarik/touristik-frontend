@@ -19,6 +19,26 @@ export const GET = async (req: NextRequest) => {
     return Response.json({ revalidated: true });
   }
 
+  if (collection == "ammenityItems") {
+    const ids = params.get("listingIds");
+    if (ids === "" || ids === null)
+      return Response.json({ revalidated: false });
+
+    // Revalidate all /"listings/:id" that have updated ammenity
+    ids?.split(",").map((id) => {
+      locales.forEach((locale) => {
+        revalidatePath(`/${locale}/listings/${id}`);
+      });
+    });
+
+    // Revalidate index "/" page and "/listings"
+    locales.forEach((locale) => {
+      revalidatePath(`/${locale}`);
+      revalidatePath(`/${locale}/listings`);
+    });
+    return Response.json({ revalidated: true });
+  }
+
   locales.forEach((locale) => {
     revalidatePath(`/${locale}/${collection}/${id}`);
   });
