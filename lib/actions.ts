@@ -2,6 +2,7 @@
 
 import { sendEmail } from "@/lib/handlers";
 import { EmailData } from "@/lib/types/definitions";
+import { Listing } from "@/lib/types/payload-types";
 
 type State = {
   message?: string | null;
@@ -9,7 +10,8 @@ type State = {
 };
 
 export const handleEmail = async (
-  pathname: string,
+  pathname: string | null,
+  listingName: Listing["name"] | null,
   prevState: State,
   formData: FormData,
 ): Promise<State> => {
@@ -19,7 +21,9 @@ export const handleEmail = async (
   );
 
   const filteredObject = Object.fromEntries(filteredData) as EmailData;
-  filteredObject.pagePath = `${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`;
+  if (pathname)
+    filteredObject.pagePath = `${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`;
+  if (listingName) filteredObject.listingName = listingName;
 
   const data = await sendEmail(filteredObject);
   if (data.error) return { status: "error" };

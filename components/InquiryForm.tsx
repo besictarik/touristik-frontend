@@ -4,13 +4,24 @@ import { Dictionary } from "@/lib/types/definitions";
 import { usePathname } from "next/navigation";
 import { handleEmail } from "@/lib/actions";
 import { useFormState } from "react-dom";
+import { Listing } from "@/lib/types/payload-types";
 
-const InquiryForm = ({ t }: { t: Dictionary["Listing"] }) => {
+const InquiryForm = ({
+  t,
+  listingName,
+}: {
+  t: Dictionary["Listing"];
+  listingName: Listing["name"];
+}) => {
   const pathname = usePathname();
-  const handleEmailWithPathname = handleEmail.bind(null, pathname);
+  const handleEmailWithListingInfo = handleEmail.bind(
+    null,
+    pathname,
+    listingName,
+  );
   const initialState = { message: null, status: null };
   const [state, action, isPending] = useFormState(
-    handleEmailWithPathname,
+    handleEmailWithListingInfo,
     initialState,
   );
 

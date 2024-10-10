@@ -100,5 +100,9 @@
     "accept-all": "Prihvati sve",
     "accept-required-only": "Prihvati samo obavezne",
     "manage-preferences": "Upravljanje postavkama"
+  },
+  "DiscountPopup": {
+    "title": "Uhvati sezonski popust!",
+    "content": "Na zahtjev uz prijavu min. 150 Eura popusta i više na cijenu najma za min. boravak 7 dana"
   }
 }

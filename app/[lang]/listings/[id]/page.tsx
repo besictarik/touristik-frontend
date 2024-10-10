@@ -110,7 +110,7 @@ const Page = async ({
             <Location title={t.Listing.location} listing={listing} />
           </div>
           <div className="w-1/3 sm:w-full">
-            <InquiryForm t={t.Listing} />
+            <InquiryForm t={t.Listing} listingName={listing.name} />
           </div>
         </div>
       </div>

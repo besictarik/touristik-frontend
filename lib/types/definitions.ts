@@ -106,6 +106,12 @@ type PolicyConsent = {
   "manage-preferences": string;
 };
 
+type DiscountPopup = {
+  title: string;
+  content: string;
+  "check-offer": string;
+};
+
 export type Dictionary = {
   Index: Index;
   Search: Search;
@@ -114,6 +120,7 @@ export type Dictionary = {
   NeedHelp: NeedHelp;
   Footer: Footer;
   PolicyConsent: PolicyConsent;
+  DiscountPopup: DiscountPopup;
 };
 
 export type EmailData = {
@@ -125,7 +132,8 @@ export type EmailData = {
   checkOutDate?: string;
   message?: string;
   guests?: string;
-  pagePath: string;
+  pagePath?: string;
+  listingName?: string;
 };
 
 export type Collection<T> = {

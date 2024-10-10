@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCookieExpiry, getLocale, locales } from "@/lib/utils";
+import { getCookieExpiryYears, getLocale, locales } from "@/lib/utils";
 
 export const middleware = (request: NextRequest) => {
   const { pathname } = request.nextUrl;
@@ -25,7 +25,7 @@ export const middleware = (request: NextRequest) => {
     // Set the cookie to the new locale
     if (cookiesAccepted)
       response.cookies.set("lang", pathnameLocale, {
-        expires: getCookieExpiry(1),
+        expires: getCookieExpiryYears(1),
       });
     return response; // Return the modified response
   }
@@ -40,7 +40,7 @@ export const middleware = (request: NextRequest) => {
   const locale = getLocale(request);
   if (cookiesAccepted)
     response.cookies.set("lang", locale, {
-      expires: getCookieExpiry(1),
+      expires: getCookieExpiryYears(1),
     });
 
   request.nextUrl.pathname = `/${locale}${pathname}`;

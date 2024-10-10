@@ -100,5 +100,9 @@
     "accept-all": "Accept all",
     "accept-required-only": "Accept required only",
     "manage-preferences": "Manage preferences"
+  },
+  "DiscountPopup": {
+    "title": "Exclusive Discount Offer!",
+    "content": "By request with registration min. 150 Euro discount and more on the renting price by min stay 7 days."
   }
 }

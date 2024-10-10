@@ -239,9 +239,15 @@ export const getDayBookingStatus = (
   return ""; // Not booked on this date
 };
 
-export const getCookieExpiry = (years: number) => {
+export const getCookieExpiryYears = (years: number) => {
   const expires = new Date();
   expires.setFullYear(expires.getFullYear() + years);
+  return expires;
+};
+
+export const getCookieExpiryWeeks = (weeks: number) => {
+  const expires = new Date();
+  expires.setDate(expires.getDate() + weeks * 7); // Add the number of days equivalent to weeks
   return expires;
 };
 

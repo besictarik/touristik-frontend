@@ -7,6 +7,7 @@ import { SupportedLanguage } from "@/lib/types/definitions";
 import Banner from "@/components/Banner";
 import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
+import DiscountPopup from "@/components/DiscountPopup";
 
 // Have to finish metadata
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function RootLayout({
         </div>
 
         <AcceptPolicy />
+        <DiscountPopup />
       </body>
     </html>
   );

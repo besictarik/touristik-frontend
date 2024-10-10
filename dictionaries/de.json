@@ -100,5 +100,9 @@
     "accept-all": "Alle akzeptieren",
     "accept-required-only": "Nur erforderliche akzeptieren",
     "manage-preferences": "Einstellungen verwalten"
+  },
+  "DiscountPopup": {
+    "title": "Exklusives Rabattangebot!",
+    "content": "Bei ner Anfrage mit Anmeldung gibts mindestens 150 Euro Rabatt und mehr auf den Mietpreis, wenn du mindestens 7 Tage bleibst."
   }
 }

@@ -32,44 +32,39 @@ const AcceptPolicy = () => {
 
   return (
     <div
+      id={"acceptPolicy"}
       className={`${isOpen || "hidden"} fixed left-4 bottom-4 z-[999999] overflow-hidden bg-white max-w-[400px] shadow rounded-xl`}
     >
       <div className={"px-4 pt-4 pb-5"}>
-        <span className={"font-medium text-lg block mb-1.5"}>
+        <span className={"font-medium text-lg text-dark-3 block mb-1.5"}>
           {t?.PolicyConsent.title}
         </span>
-        <span className={"font-light block"}>
+        <span className={"font-light block text-dark-5"}>
           {t?.PolicyConsent.description}
         </span>
       </div>
       <div className={"flex flex-col px-4 gap-2.5 mb-3"}>
         <button
           onClick={acceptCookies}
-          className={
-            "bg-[rgb(48,54,60)] rounded-md text-white px-4 py-3 font-medium"
-          }
+          className={"bg-dark-3 text-light-3 rounded-md px-4 py-3 font-medium"}
         >
           {t?.PolicyConsent["accept-all"]}
         </button>
         <button
           onClick={acceptCookies}
-          className={
-            "bg-[rgb(234,239,242)] rounded-md text-black px-4 py-3 font-medium"
-          }
+          className={"bg-light-1 text-dark-3 rounded-md px-4 py-3 font-medium"}
         >
           {t?.PolicyConsent["accept-required-only"]}
         </button>
         <button
           className={
-            "bg-[rgb(234,239,242)] rounded-md text-black px-4 py-3 font-medium"
+            "bg-light-1 text-dark-3 rounded-md text-black px-4 py-3 font-medium"
           }
         >
           {t?.PolicyConsent["manage-preferences"]}
         </button>
       </div>
-      <div
-        className={"flex bg-[rgb(234,239,242)] text-black px-4 py-3 gap-2.5"}
-      >
+      <div className={"flex bg-light-1 text-dark-5 px-4 py-3 gap-2.5"}>
         <Link
           href={`/${lang}/blog/65c0eb0b6aa1d2146296e952`}
           className={"font-normal"}

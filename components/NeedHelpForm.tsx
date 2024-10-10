@@ -3,11 +3,9 @@
 import { Dictionary } from "@/lib/types/definitions";
 import { useFormState } from "react-dom";
 import { handleEmail } from "@/lib/actions";
-import { usePathname } from "next/navigation";
 
 const NeedHelpForm = ({ t }: { t: Dictionary }) => {
-  const pathname = usePathname();
-  const handleEmailWithPathname = handleEmail.bind(null, pathname);
+  const handleEmailWithPathname = handleEmail.bind(null, null, null);
   const initialState = { message: null, status: null };
   const [state, action, isPending] = useFormState(
     handleEmailWithPathname,
@@ -63,7 +61,7 @@ const NeedHelpForm = ({ t }: { t: Dictionary }) => {
               <input
                 type="email"
                 id={"email"}
-                name="email"
+                name="emailAddress"
                 autoComplete={"email"}
                 className="block p-2.5 w-full rounded-none text-dark-5 border border-dark-5 border-opacity-50 shadow-drop-shadow-1"
                 placeholder="john.doe@gmail.com"
