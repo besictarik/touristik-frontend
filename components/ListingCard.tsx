@@ -27,6 +27,7 @@ const ListingCard = ({
           src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
           alt={`${listing.name} photo`}
           fill
+          priority={homepage}
           sizes={"(max-width: 1280px) 85vw, 1280px"}
           style={{ objectFit: "cover" }}
         />

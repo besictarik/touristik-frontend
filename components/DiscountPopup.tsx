@@ -37,10 +37,10 @@ const DiscountPopup = () => {
   return (
     <div
       ref={discountPopupRef}
-      className={`${isOpen || "hidden"} fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[999999] overflow-hidden bg-white max-w-[700px] shadow`}
+      className={`${isOpen || "hidden"} fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[999999] overflow-hidden bg-white max-w-[700px] lg:w-4/6 sm:w-5/6 shadow`}
     >
-      <div className={"p-20 flex flex-col items-center gap-2.5"}>
-        <span className={"font-bold text-3xl text-dark-3"}>
+      <div className={"p-20 sm:p-10 flex flex-col items-center gap-2.5"}>
+        <span className={"font-bold text-center text-3xl text-dark-3"}>
           {t?.DiscountPopup.title}
         </span>
         <span className={"text-center text-xl text-dark-5"}>
@@ -52,7 +52,7 @@ const DiscountPopup = () => {
             onClick={closeDiscount}
             className="inline-block bg-light-1 border border-dark-5 border-opacity-50 text-dark-3 text-xl shadow-drop-shadow-1 px-10 py-3"
           >
-            {t?.Footer.allVillas}
+            {t?.DiscountPopup["check-offer"]}
           </div>
         </Link>
       </div>

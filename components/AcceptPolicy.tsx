@@ -57,9 +57,7 @@ const AcceptPolicy = () => {
           {t?.PolicyConsent["accept-required-only"]}
         </button>
         <button
-          className={
-            "bg-light-1 text-dark-3 rounded-md text-black px-4 py-3 font-medium"
-          }
+          className={"bg-light-1 text-dark-3 rounded-md px-4 py-3 font-medium"}
         >
           {t?.PolicyConsent["manage-preferences"]}
         </button>

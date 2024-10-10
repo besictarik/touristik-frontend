@@ -20,7 +20,7 @@
   },
   "Search": {
     "title": "Pretražite sve naše vile u Hrvatskoj",
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "paragraph": "Pronađite vilu ili apartman koji želite. Ako postavite direktan upit uz ispunjen obrazac, očekuju vas popusti na cijenu ili dodatne usluge.",
     "location": "Lokacija",
     "rooms": "Sobe",
     "bathrooms": "Kupaonice",
@@ -66,7 +66,7 @@
   },
   "NeedHelp": {
     "title": "Trebate pomoć?",
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat diam ut venenatis tellus in metus vulputate eu scelerisque. Aenean pharetra magna ac placerat vestibulum lectus mauris.",
+    "paragraph": "Za izravne upite s ispunjenim obrascem dobivate posebne popuste na cijene ili dodatne usluge.",
     "croNumber": "Hrvatski telefonski broj",
     "gerNumber": "Njemački telefonski broj",
     "firstName": "Ime",
@@ -103,6 +103,7 @@
   },
   "DiscountPopup": {
     "title": "Uhvati sezonski popust!",
-    "content": "Na zahtjev uz prijavu min. 150 Eura popusta i više na cijenu najma za min. boravak 7 dana"
+    "content": "Na zahtjev uz prijavu min. 150 Eura popusta i više na cijenu najma za min. boravak 7 dana",
+    "check-offer": "Provjeri ponudu"
   }
 }
