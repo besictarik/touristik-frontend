@@ -112,48 +112,70 @@ const Navbar = ({
           } sm:flex-col sm:col-span-2 sm:my-10`}
         >
           <li>
-            <Link className="block" href="/listings">
+            <Link className="block sm:text-[22px]" href="/listings">
               {t.Footer.allVillas}
             </Link>
           </li>
           <li>
-            <Link className="block" href="/blog/65bf8e9aa47b43f9b04349cf">
+            <Link
+              className="block sm:text-[22px]"
+              href="/blog/65bf8e9aa47b43f9b04349cf"
+            >
               {t.Footer.services}
             </Link>
           </li>
           <li>
-            <Link className="block" href="/blog">
+            <Link className="block sm:text-[22px]" href="/blog">
               Blog
             </Link>
           </li>
           <li>
-            <Link className="block" href="/blog/65e89833dff6423999ac1a81">
+            <Link
+              className="block sm:text-[22px]"
+              href="/blog/65e89833dff6423999ac1a81"
+            >
               {t.Footer.aboutUs}
             </Link>
           </li>
           <li>
-            <Link className="block" href="/blog/65e896c6dff6423999ac1971">
+            <Link
+              className="block sm:text-[22px]"
+              href="/blog/65e896c6dff6423999ac1971"
+            >
               {t.Footer.contactUs}
             </Link>
           </li>
           <li>
-            <Link className="block" href="/blog/65e8987edff6423999ac1b11">
+            <Link
+              className="block sm:text-[22px]"
+              href="/blog/65e8987edff6423999ac1b11"
+            >
               {t.Footer.extras}
             </Link>
           </li>
           <li>
             <div>
               <Suspense fallback={<></>}>
-                <div className="mb-2.5">{t.Footer.languageSelection}</div>
-                <SelectLanguage lang={lang} className={"text-dark-5 p-2.5"} />
+                <div className="mb-2.5 sm:text-[22px]">
+                  {t.Footer.languageSelection}
+                </div>
+                <SelectLanguage
+                  lang={lang}
+                  className={"text-dark-5 p-2.5 sm:text-[22px]"}
+                />
               </Suspense>
             </div>
           </li>
           <li>
             <div>
-              <div className="mb-2.5">{t.NeedHelp.emailAddress}</div>
+              <div className="mb-2.5 sm:text-[22px]">
+                {t.NeedHelp.emailAddress}
+              </div>
               <div>
-                <Link className="underline" href="mailto:info@tst-touristik.de">
+                <Link
+                  className="underline sm:text-[22px]"
+                  href="mailto:info@tst-touristik.de"
+                >
                   info@tst-touristik.de
                 </Link>
               </div>
