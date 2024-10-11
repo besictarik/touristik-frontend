@@ -17,7 +17,7 @@ const Map = ({
   //   API key should be removed
   return (
     <GoogleMap
-      apiKey="AIzaSyD1cxji-AWDXKQVklHxqstIn229b-Borfo"
+      apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
       defaultCenter={{
         lat: coordinates[0],
         lng: coordinates[1],
