@@ -8,11 +8,13 @@ const ListingCard = ({
   listing,
   className,
   homepage = false,
+  priority,
 }: {
   lang: SupportedLanguage;
   listing: Listing;
   className?: string;
   homepage?: boolean;
+  priority?: boolean;
 }) => {
   return (
     <div
@@ -27,7 +29,7 @@ const ListingCard = ({
           src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${(listing.photos[0].photo as Photo).url}`}
           alt={`${listing.name} photo`}
           fill
-          priority={homepage}
+          priority={priority}
           sizes={"(max-width: 1280px) 85vw, 1280px"}
           style={{ objectFit: "cover" }}
         />
