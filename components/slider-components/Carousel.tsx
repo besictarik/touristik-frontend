@@ -26,12 +26,16 @@ export const Carousel = ({
   totalSlides,
   visible,
   step,
+  slideMargin,
+  trayPadding,
 }: Readonly<{
   children: React.ReactNode;
-  autoscroll: boolean;
+  autoscroll?: boolean;
   totalSlides: number;
   visible: number;
   step: number;
+  slideMargin?: string;
+  trayPadding?: string;
 }>) => {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -59,6 +63,8 @@ export const Carousel = ({
       totalSlides={totalSlides}
       visibleSlides={visible}
       step={step}
+      slideMargin={slideMargin}
+      trayPadding={trayPadding}
       currentSlide={currentSlide}
       onSlide={({ currentSlide }) => {
         setCurrentSlide(currentSlide); // Update state when slide changes

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Slider as SliderClient } from "react-scroll-snap-anime-slider";
-import { useSliderContext } from "@/components/slider/Carousel";
+import { useSliderContext } from "@/components/slider-components/Carousel";
 
 export const Slider = ({
   children,
