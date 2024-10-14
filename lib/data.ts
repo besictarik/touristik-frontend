@@ -4,11 +4,7 @@ import {
   SupportedLanguage,
 } from "@/lib/types/definitions";
 import { AmmenityItem, Blog, Index, Listing } from "@/lib/types/payload-types";
-import {
-  getAmmenityQuery,
-  getListingsQuery,
-  getTwoRandomNumbers,
-} from "@/lib/utils";
+import { getAmmenityQuery, getListingsQuery } from "@/lib/utils";
 
 export const getIndexData = async (lang: SupportedLanguage): Promise<Index> => {
   const url = `${process.env.API_URL}/api/globals/index?locale=${lang}&depth=10`;
@@ -110,10 +106,18 @@ export const getAllListingsData = async (): Promise<Collection<Listing>> => {
   return await res.json();
 };
 
-export const getExtraListings = async (): Promise<Listing[]> => {
-  const { docs: listings } = await getAllListingsData();
-  const randomNumbers = getTwoRandomNumbers(listings.length);
-  return randomNumbers.map((number) => listings[number]);
+export const getExtraListings = async (
+  lang: SupportedLanguage,
+): Promise<Listing[]> => {
+  const url = `${process.env.API_URL}/api/listings/random?count=2&locale=${lang}&where[_status][equals]=published`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `${process.env.API_KEY}`,
+    },
+    cache: "no-cache",
+  });
+  const { docs: listings } = await res.json();
+  return listings;
 };
 
 export const getAvailability = async (availabilityURL: string) => {

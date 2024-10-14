@@ -6,7 +6,7 @@ import { getDictionary } from "@/lib/utils";
 
 const OtherVillas = async ({ lang }: { lang: SupportedLanguage }) => {
   const t = await getDictionary(lang);
-  const randomListings = await getExtraListings();
+  const randomListings = await getExtraListings(lang);
   return (
     <div className="w-full max-w-screen-xl xl:max-w-screen-lg sm:w-10/12 mx-auto relative -top-4 pb-16">
       <h2 className="text-2xl font-serif text-dark-5 mb-5">

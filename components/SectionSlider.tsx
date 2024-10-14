@@ -33,22 +33,22 @@ const SectionSlider = ({
     >
       <div className={"relative"}>
         <ButtonBack>
-          <button
+          <span
             className={
               "absolute top-1/2 left-[calc(1/12*100%)] -translate-y-1/2 z-50 -translate-x-1/2 bg-light-1 w-12 h-12 flex items-center justify-center rounded-full drop-shadow hover:bg-dark-3 text-xl font-medium text-dark-3 hover:text-light-1 transition-all duration-300"
             }
           >
             &lt;
-          </button>
+          </span>
         </ButtonBack>
         <ButtonNext>
-          <button
+          <span
             className={
               "absolute top-1/2 right-[calc(1/12*100%)] -translate-y-1/2 z-50 translate-x-1/2 bg-light-1 w-12 h-12 flex items-center justify-center rounded-full drop-shadow hover:bg-dark-3 text-xl font-medium text-dark-3 hover:text-light-1 transition-all duration-300"
             }
           >
             &gt;
-          </button>
+          </span>
         </ButtonNext>
         <Slider>
           {listings.map((listingElement) => {
