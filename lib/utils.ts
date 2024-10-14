@@ -41,24 +41,8 @@ export const formatDate = (dateString: string) => {
   });
 };
 
-export const isSameDateAs = (dateOne: Date, dateTwo: Date): boolean => {
-  return (
-    dateOne.getFullYear() === dateTwo.getFullYear() &&
-    dateOne.getMonth() === dateTwo.getMonth() &&
-    dateOne.getDate() === dateTwo.getDate()
-  );
-};
-
 export const convertToZagrebTimezone = (date: Date) => {
   return new Date(date.toLocaleString("en-US", { timeZone: "Europe/Zagreb" }));
-};
-
-export const checkBookingStatus = (date: Date, start: Date, end: Date) => {
-  const isCheckin = isSameDateAs(date, start);
-  const isCheckout = isSameDateAs(date, end);
-  const isBooked = date > start && date < end;
-
-  return { isCheckin, isCheckout, isBooked };
 };
 
 export const getListingParams = (params: URLSearchParams): ListingParams => {
@@ -193,20 +177,6 @@ export const getAmmenityQuery = (): string => {
   return qs.stringify({ where: ammenityQuery });
 };
 
-export const getTwoRandomNumbers = (range: number): number[] => {
-  if (range == 0) return [];
-  if (range == 1) return [Math.floor(Math.random() * range)];
-
-  const randomNumbers = new Set<number>();
-
-  while (randomNumbers.size < 2) {
-    const randomIndex = Math.floor(Math.random() * range);
-    randomNumbers.add(randomIndex);
-  }
-
-  return Array.from(randomNumbers);
-};
-
 export const getDayBookingStatus = (
   bookedPeriods: { start: Date; end: Date }[],
   specificDate: Date,
@@ -214,7 +184,7 @@ export const getDayBookingStatus = (
 ) => {
   if (view !== "month") return "";
 
-  const checkDate = new Date(specificDate);
+  const checkDate = convertToZagrebTimezone(specificDate);
 
   // Binary search for the period that may contain the specific date
   let left = 0;
@@ -225,11 +195,11 @@ export const getDayBookingStatus = (
     const midPeriod = bookedPeriods[mid];
 
     if (
-      checkDate >= new Date(midPeriod.start) &&
-      checkDate <= new Date(midPeriod.end)
+      checkDate >= convertToZagrebTimezone(midPeriod.start) &&
+      checkDate <= convertToZagrebTimezone(midPeriod.end)
     ) {
       return "fullyBookedDate"; // Date is within this period
-    } else if (checkDate < new Date(midPeriod.start)) {
+    } else if (checkDate < convertToZagrebTimezone(midPeriod.start)) {
       right = mid - 1; // Move left
     } else {
       left = mid + 1; // Move right
