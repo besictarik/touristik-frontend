@@ -6,7 +6,7 @@ export const GET = async (req: NextRequest) => {
   const params = req.nextUrl.searchParams;
 
   const secret = params.get("secret");
-  if (secret != "antemate")
+  if (secret != process.env.PAYLOAD_REVALIDATION_SECRET)
     return Response.json({ message: "Invalid token" }, { status: 401 });
 
   const id = params.get("id");
